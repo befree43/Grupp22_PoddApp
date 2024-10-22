@@ -33,7 +33,6 @@
             tbNamn = new TextBox();
             btnLaggTill = new Button();
             dgvPrenumerationer = new DataGridView();
-            lblAvsnitt = new Label();
             lblURL = new Label();
             lblBeskrivning = new Label();
             Prenumerationer = new Label();
@@ -43,6 +42,7 @@
             lblKategori = new Label();
             cboxKategori = new ComboBox();
             lblTitel = new Label();
+            lblAvsnitt = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPrenumerationer).BeginInit();
             SuspendLayout();
             // 
@@ -87,15 +87,6 @@
             dgvPrenumerationer.Size = new Size(953, 450);
             dgvPrenumerationer.TabIndex = 5;
             // 
-            // lblAvsnitt
-            // 
-            lblAvsnitt.AutoSize = true;
-            lblAvsnitt.Location = new Point(1210, 47);
-            lblAvsnitt.Name = "lblAvsnitt";
-            lblAvsnitt.Size = new Size(127, 48);
-            lblAvsnitt.TabIndex = 6;
-            lblAvsnitt.Text = "Avsnitt";
-            // 
             // lblURL
             // 
             lblURL.AutoSize = true;
@@ -108,7 +99,7 @@
             // lblBeskrivning
             // 
             lblBeskrivning.AutoSize = true;
-            lblBeskrivning.Location = new Point(1210, 585);
+            lblBeskrivning.Location = new Point(1210, 605);
             lblBeskrivning.Name = "lblBeskrivning";
             lblBeskrivning.Size = new Size(202, 48);
             lblBeskrivning.TabIndex = 8;
@@ -176,11 +167,21 @@
             lblTitel.TabIndex = 16;
             lblTitel.Text = "Namn";
             // 
+            // lblAvsnitt
+            // 
+            lblAvsnitt.AutoSize = true;
+            lblAvsnitt.Location = new Point(1210, 58);
+            lblAvsnitt.Name = "lblAvsnitt";
+            lblAvsnitt.Size = new Size(127, 48);
+            lblAvsnitt.TabIndex = 17;
+            lblAvsnitt.Text = "Avsnitt";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2947, 1309);
+            Controls.Add(lblAvsnitt);
             Controls.Add(lblTitel);
             Controls.Add(cboxKategori);
             Controls.Add(lblKategori);
@@ -190,7 +191,6 @@
             Controls.Add(Prenumerationer);
             Controls.Add(lblBeskrivning);
             Controls.Add(lblURL);
-            Controls.Add(lblAvsnitt);
             Controls.Add(dgvPrenumerationer);
             Controls.Add(btnLaggTill);
             Controls.Add(tbNamn);
@@ -219,5 +219,6 @@
         private Label lblKategori;
         private ComboBox cboxKategori;
         private Label lblTitel;
+        private Label lblAvsnitt;
     }
 }
