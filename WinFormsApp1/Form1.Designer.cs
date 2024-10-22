@@ -43,20 +43,21 @@
             cboxKategori = new ComboBox();
             lblTitel = new Label();
             lblAvsnitt = new Label();
+            lblRedigeraPodcast = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPrenumerationer).BeginInit();
             SuspendLayout();
             // 
             // lbAvsnitt
             // 
             lbAvsnitt.FormattingEnabled = true;
-            lbAvsnitt.Location = new Point(1210, 109);
+            lbAvsnitt.Location = new Point(1977, 127);
             lbAvsnitt.Name = "lbAvsnitt";
             lbAvsnitt.Size = new Size(662, 436);
             lbAvsnitt.TabIndex = 1;
             // 
             // rtbBeskrivning
             // 
-            rtbBeskrivning.Location = new Point(1210, 656);
+            rtbBeskrivning.Location = new Point(1977, 674);
             rtbBeskrivning.Name = "rtbBeskrivning";
             rtbBeskrivning.Size = new Size(662, 572);
             rtbBeskrivning.TabIndex = 2;
@@ -84,7 +85,7 @@
             dgvPrenumerationer.Location = new Point(107, 160);
             dgvPrenumerationer.Name = "dgvPrenumerationer";
             dgvPrenumerationer.RowHeadersWidth = 123;
-            dgvPrenumerationer.Size = new Size(953, 450);
+            dgvPrenumerationer.Size = new Size(1115, 450);
             dgvPrenumerationer.TabIndex = 5;
             // 
             // lblURL
@@ -99,7 +100,7 @@
             // lblBeskrivning
             // 
             lblBeskrivning.AutoSize = true;
-            lblBeskrivning.Location = new Point(1210, 605);
+            lblBeskrivning.Location = new Point(1977, 623);
             lblBeskrivning.Name = "lblBeskrivning";
             lblBeskrivning.Size = new Size(202, 48);
             lblBeskrivning.TabIndex = 8;
@@ -170,17 +171,28 @@
             // lblAvsnitt
             // 
             lblAvsnitt.AutoSize = true;
-            lblAvsnitt.Location = new Point(1210, 58);
+            lblAvsnitt.Location = new Point(1977, 76);
             lblAvsnitt.Name = "lblAvsnitt";
             lblAvsnitt.Size = new Size(127, 48);
             lblAvsnitt.TabIndex = 17;
             lblAvsnitt.Text = "Avsnitt";
+            // 
+            // lblRedigeraPodcast
+            // 
+            lblRedigeraPodcast.AutoSize = true;
+            lblRedigeraPodcast.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRedigeraPodcast.Location = new Point(749, 646);
+            lblRedigeraPodcast.Name = "lblRedigeraPodcast";
+            lblRedigeraPodcast.Size = new Size(394, 65);
+            lblRedigeraPodcast.TabIndex = 18;
+            lblRedigeraPodcast.Text = "Redigera podcast";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2947, 1309);
+            Controls.Add(lblRedigeraPodcast);
             Controls.Add(lblAvsnitt);
             Controls.Add(lblTitel);
             Controls.Add(cboxKategori);
@@ -210,6 +222,7 @@
         private Button btnLaggTill;
         private DataGridView dgvPrenumerationer;
         private Label lblAvsnitt;
+        private Label lblRedigeraPodcast;
         private Label lblURL;
         private Label lblBeskrivning;
         private Label Prenumerationer;
