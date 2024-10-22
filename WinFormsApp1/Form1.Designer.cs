@@ -42,8 +42,8 @@
             lblKategori = new Label();
             cboxKategori = new ComboBox();
             lblTitel = new Label();
-            lblAvsnitt = new Label();
             lblRedigeraPodcast = new Label();
+            lblAvsnitt = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPrenumerationer).BeginInit();
             SuspendLayout();
             // 
@@ -168,15 +168,6 @@
             lblTitel.TabIndex = 16;
             lblTitel.Text = "Namn";
             // 
-            // lblAvsnitt
-            // 
-            lblAvsnitt.AutoSize = true;
-            lblAvsnitt.Location = new Point(1977, 76);
-            lblAvsnitt.Name = "lblAvsnitt";
-            lblAvsnitt.Size = new Size(127, 48);
-            lblAvsnitt.TabIndex = 17;
-            lblAvsnitt.Text = "Avsnitt";
-            // 
             // lblRedigeraPodcast
             // 
             lblRedigeraPodcast.AutoSize = true;
@@ -187,13 +178,22 @@
             lblRedigeraPodcast.TabIndex = 18;
             lblRedigeraPodcast.Text = "Redigera podcast";
             // 
+            // lblAvsnitt
+            // 
+            lblAvsnitt.AutoSize = true;
+            lblAvsnitt.Location = new Point(1973, 55);
+            lblAvsnitt.Name = "lblAvsnitt";
+            lblAvsnitt.Size = new Size(127, 48);
+            lblAvsnitt.TabIndex = 19;
+            lblAvsnitt.Text = "Avsnitt";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2947, 1309);
-            Controls.Add(lblRedigeraPodcast);
             Controls.Add(lblAvsnitt);
+            Controls.Add(lblRedigeraPodcast);
             Controls.Add(lblTitel);
             Controls.Add(cboxKategori);
             Controls.Add(lblKategori);
@@ -221,7 +221,6 @@
         private TextBox tbNamn;
         private Button btnLaggTill;
         private DataGridView dgvPrenumerationer;
-        private Label lblAvsnitt;
         private Label lblRedigeraPodcast;
         private Label lblURL;
         private Label lblBeskrivning;
