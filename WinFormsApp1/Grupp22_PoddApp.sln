@@ -5,11 +5,11 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grupp22_PoddApp", "Grupp22_PoddApp.csproj", "{69C892C6-F520-4E78-BEF3-F565EC33F493}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "..\BusinessLayer\BusinessLayer.csproj", "{FD7B9514-64B6-4BE4-91AE-75C060048C60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "..\BusinessLayer\BusinessLayer.csproj", "{FD7B9514-64B6-4BE4-91AE-75C060048C60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "..\DataLayer\DataLayer.csproj", "{89D79FCA-6986-44A1-AA4B-E1345BB3E5A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "..\DataLayer\DataAccessLayer.csproj", "{89D79FCA-6986-44A1-AA4B-E1345BB3E5A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{734707EF-BCFD-428A-97D7-78312F2F6520}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "..\Models\Models.csproj", "{734707EF-BCFD-428A-97D7-78312F2F6520}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

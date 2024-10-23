@@ -1,4 +1,4 @@
-﻿namespace DataLayer
+﻿namespace DataAccessLayer
 {
     public class Class1
     {
