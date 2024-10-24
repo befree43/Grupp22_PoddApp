@@ -22,12 +22,12 @@ namespace DataAccessLayer.Repository
         {
             return PodcastSerializer.Deserialize();
         }
-        public Podcast GetByID(string id)
+        public Podcast GetByUrl(string url)
         {
             Podcast Podcast = null;
             foreach (var item in PodcastSerializer.Deserialize())
             {
-                if (item.PodcastNummer.Equals(id))
+                if (item.Url.Equals(url))
                 {
                     Podcast = item;
                 }
@@ -47,7 +47,7 @@ namespace DataAccessLayer.Repository
             }
             SaveChanges();
         }
-        public void Podcastete(int index)
+        public void Delete(int index)
         {
             ListAvPodcastar.RemoveAt(index);
             SaveChanges();
