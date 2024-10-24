@@ -8,11 +8,11 @@ namespace Models
 {
     public class Kategori
     {
-        private string? namn;
+        public string? Namn;
         
         public Kategori(string? namn)
         {
-            this.namn = namn;
+            Namn = namn;
         }
     }
 }

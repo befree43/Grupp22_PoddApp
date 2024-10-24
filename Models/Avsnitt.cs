@@ -8,15 +8,15 @@ namespace Models
 {
     public class Avsnitt
     {
-        private string? titel;
-        private string? beskrivning;
-        private string? id;
+        public string? Titel {  get; set; }
+        public string? Beskrivning { get; set; }
+        public string? Id { get; set; }
 
         public Avsnitt(string? titel, string? beskrivning, string? id)
         {
-            this.titel = titel;
-            this.beskrivning = beskrivning;
-            this.id = id;
+            Titel = titel;
+            Beskrivning = beskrivning;
+            Id = id;
         }
     }
 }
