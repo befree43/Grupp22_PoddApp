@@ -18,5 +18,7 @@
             Url = url;
 
         }
+
+        public Podcast() { }
     }
 }
