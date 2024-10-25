@@ -1,4 +1,5 @@
-﻿using System.ServiceModel.Syndication;
+﻿using System.Diagnostics;
+using System.ServiceModel.Syndication;
 using System.Xml;
 using DataAccessLayer.Repository;
 using Models;
@@ -8,23 +9,19 @@ namespace DataAccessLayer
 {
     public class RSS
     {
-        public void HämtaPodcastFrånRss(string url);
+       
+    public static void HämtaPodcastFrånRss(string kategori, string namn, string url)
+    {
+
+        XmlReader minXMLlasare = XmlReader.Create("https://rss.podplaystudio.com/1477.xml");
         SyndicationFeed podcastFlode = SyndicationFeed.Load(minXMLlasare);
 
-        foreach (SyndicationItem item in podcastFlode.Items)
-            {
-            Podcast enPodcast = new Podcast
-            {
-                Url = item.Id.ToString(),
-                Titel = item.Title.Text
-            };
+        Podcast enPodcast = new Podcast(podcastFlode.Title.Text, kategori, namn , url);
+            
+       //lägg till enPodcast i xml fil
 
-                    podcasts.Add(enPodcast); // Lägg till varje podcast i listan
-                }
-            }
 
-            return podcasts; // Returnera listan med podcasts
-        }
     }
+}
 }
 
