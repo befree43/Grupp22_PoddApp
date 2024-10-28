@@ -14,6 +14,10 @@ namespace DataAccessLayer
     {
         public static async Task<Podcast> HämtaPodcastFrånRssAsync(string kategori, string namn, string url)
         {
+            // Hämta användarens dokumentmapp
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filnamn = Path.Combine(documentsPath, "podcasts.xml");
+            
             try
             {
                 using (XmlReader minXMLlasare = XmlReader.Create(url))
@@ -32,6 +36,7 @@ namespace DataAccessLayer
                     return enPodcast;
                 }
             }
+            
             catch (Exception ex)
             {
                 Console.WriteLine($"Fel vid hämtning av RSS-flödet: {ex.Message}");
