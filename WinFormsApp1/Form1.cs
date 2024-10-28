@@ -5,9 +5,9 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form    
     {
-        //private PodcastController podcastController = new PodcastController();
-        //private AvsnittController avsnittController = new AvsnittController();
-        //private KategoriController kategoriController = new KategoriContoller();
+        private PodcastController podcastController = new PodcastController();
+        private AvsnittController avsnittController = new AvsnittController();
+        private KategoriController kategoriController = new KategoriController();
 
     
         public Form1()
@@ -22,7 +22,7 @@ namespace WinFormsApp1
             string URL = tbURL.Text;
 
 
-            //RSS.HämtaPodcastFrånRss(kategori, namn, URL);
+            
 
 
         }

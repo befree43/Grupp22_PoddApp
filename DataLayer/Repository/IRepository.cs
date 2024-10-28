@@ -8,12 +8,11 @@ namespace DataAccessLayer.Repository
 {
     public interface IRepository<T>
     {
-        List<T> GetAll();
-        T GetByUrl(string url);
-        void Insert(T theObject);
-        void Update(int index, T theObject);
-        void Delete(int index);
-        void SaveChanges();
+        Task<List<T>> GetAllAsync();
+        Task<T> GetByUrlAsync(string url);
+        Task InsertAsync(T theObject);
+        Task UpdateAsync(int index, T theObject);
+        Task DeleteAsync(int index);
+        Task SaveChangesAsync();
     }
-
 }
