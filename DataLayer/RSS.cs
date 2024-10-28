@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO.Enumeration;
 using System.ServiceModel.Syndication;
 using System.Xml;
 using DataAccessLayer.Repository;
@@ -13,13 +14,10 @@ namespace DataAccessLayer
     public static void HämtaPodcastFrånRss(string kategori, string namn, string url)
     {
 
-        XmlReader minXMLlasare = XmlReader.Create("https://rss.podplaystudio.com/1477.xml");
+        XmlReader minXMLlasare = XmlReader.Create(url);
         SyndicationFeed podcastFlode = SyndicationFeed.Load(minXMLlasare);
 
         Podcast enPodcast = new Podcast(podcastFlode.Title.Text, kategori, namn , url);
-            
-       //lägg till enPodcast i xml fil
-
 
     }
 }

@@ -30,7 +30,7 @@
         {
             lboxAvsnitt = new ListBox();
             rtbBeskrivning = new RichTextBox();
-            tbNamn = new TextBox();
+            tbURL = new TextBox();
             btnLaggTill = new Button();
             dgvPrenumerationer = new DataGridView();
             lblURL = new Label();
@@ -56,35 +56,35 @@
             // lboxAvsnitt
             // 
             lboxAvsnitt.FormattingEnabled = true;
-            lboxAvsnitt.Location = new Point(1062, 107);
-            lboxAvsnitt.Margin = new Padding(2, 2, 2, 2);
+            lboxAvsnitt.Location = new Point(654, 67);
+            lboxAvsnitt.Margin = new Padding(1, 1, 1, 1);
             lboxAvsnitt.Name = "lboxAvsnitt";
-            lboxAvsnitt.Size = new Size(700, 964);
+            lboxAvsnitt.Size = new Size(432, 604);
             lboxAvsnitt.TabIndex = 1;
             // 
             // rtbBeskrivning
             // 
-            rtbBeskrivning.Location = new Point(1062, 1148);
-            rtbBeskrivning.Margin = new Padding(2, 2, 2, 2);
+            rtbBeskrivning.Location = new Point(654, 718);
+            rtbBeskrivning.Margin = new Padding(1, 1, 1, 1);
             rtbBeskrivning.Name = "rtbBeskrivning";
-            rtbBeskrivning.Size = new Size(700, 356);
+            rtbBeskrivning.Size = new Size(432, 224);
             rtbBeskrivning.TabIndex = 2;
             rtbBeskrivning.Text = "";
             // 
-            // tbNamn
+            // tbURL
             // 
-            tbNamn.Location = new Point(71, 708);
-            tbNamn.Margin = new Padding(2, 2, 2, 2);
-            tbNamn.Name = "tbNamn";
-            tbNamn.Size = new Size(331, 39);
-            tbNamn.TabIndex = 3;
+            tbURL.Location = new Point(44, 442);
+            tbURL.Margin = new Padding(1, 1, 1, 1);
+            tbURL.Name = "tbURL";
+            tbURL.Size = new Size(205, 27);
+            tbURL.TabIndex = 3;
             // 
             // btnLaggTill
             // 
-            btnLaggTill.Location = new Point(71, 772);
-            btnLaggTill.Margin = new Padding(2, 2, 2, 2);
+            btnLaggTill.Location = new Point(44, 482);
+            btnLaggTill.Margin = new Padding(1, 1, 1, 1);
             btnLaggTill.Name = "btnLaggTill";
-            btnLaggTill.Size = new Size(163, 47);
+            btnLaggTill.Size = new Size(100, 29);
             btnLaggTill.TabIndex = 4;
             btnLaggTill.Text = "Lägg till";
             btnLaggTill.UseVisualStyleBackColor = true;
@@ -95,40 +95,40 @@
             dgvPrenumerationer.BackgroundColor = SystemColors.GradientInactiveCaption;
             dgvPrenumerationer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPrenumerationer.GridColor = SystemColors.GradientInactiveCaption;
-            dgvPrenumerationer.Location = new Point(71, 107);
-            dgvPrenumerationer.Margin = new Padding(2, 2, 2, 2);
+            dgvPrenumerationer.Location = new Point(44, 67);
+            dgvPrenumerationer.Margin = new Padding(1, 1, 1, 1);
             dgvPrenumerationer.Name = "dgvPrenumerationer";
             dgvPrenumerationer.RowHeadersWidth = 123;
-            dgvPrenumerationer.Size = new Size(903, 301);
+            dgvPrenumerationer.Size = new Size(556, 188);
             dgvPrenumerationer.TabIndex = 5;
             // 
             // lblURL
             // 
             lblURL.AutoSize = true;
-            lblURL.Location = new Point(71, 672);
-            lblURL.Margin = new Padding(2, 0, 2, 0);
+            lblURL.Location = new Point(44, 420);
+            lblURL.Margin = new Padding(1, 0, 1, 0);
             lblURL.Name = "lblURL";
-            lblURL.Size = new Size(55, 32);
+            lblURL.Size = new Size(35, 20);
             lblURL.TabIndex = 7;
             lblURL.Text = "URL";
             // 
             // lblBeskrivning
             // 
             lblBeskrivning.AutoSize = true;
-            lblBeskrivning.Location = new Point(1062, 1114);
-            lblBeskrivning.Margin = new Padding(2, 0, 2, 0);
+            lblBeskrivning.Location = new Point(654, 696);
+            lblBeskrivning.Margin = new Padding(1, 0, 1, 0);
             lblBeskrivning.Name = "lblBeskrivning";
-            lblBeskrivning.Size = new Size(137, 32);
+            lblBeskrivning.Size = new Size(84, 20);
             lblBeskrivning.TabIndex = 8;
             lblBeskrivning.Text = "Beskrivning";
             // 
             // Prenumerationer
             // 
             Prenumerationer.AutoSize = true;
-            Prenumerationer.Location = new Point(71, 73);
-            Prenumerationer.Margin = new Padding(2, 0, 2, 0);
+            Prenumerationer.Location = new Point(44, 46);
+            Prenumerationer.Margin = new Padding(1, 0, 1, 0);
             Prenumerationer.Name = "Prenumerationer";
-            Prenumerationer.Size = new Size(193, 32);
+            Prenumerationer.Size = new Size(119, 20);
             Prenumerationer.TabIndex = 9;
             Prenumerationer.Text = "Prenumerationer";
             // 
@@ -136,10 +136,10 @@
             // 
             lblPodcasts.AutoSize = true;
             lblPodcasts.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPodcasts.Location = new Point(59, 0);
-            lblPodcasts.Margin = new Padding(2, 0, 2, 0);
+            lblPodcasts.Location = new Point(36, 0);
+            lblPodcasts.Margin = new Padding(1, 0, 1, 0);
             lblPodcasts.Name = "lblPodcasts";
-            lblPodcasts.Size = new Size(211, 65);
+            lblPodcasts.Size = new Size(135, 41);
             lblPodcasts.TabIndex = 10;
             lblPodcasts.Text = "Podcasts";
             // 
@@ -147,47 +147,47 @@
             // 
             lblLaggTillPodcast.AutoSize = true;
             lblLaggTillPodcast.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLaggTillPodcast.Location = new Point(71, 431);
-            lblLaggTillPodcast.Margin = new Padding(2, 0, 2, 0);
+            lblLaggTillPodcast.Location = new Point(44, 269);
+            lblLaggTillPodcast.Margin = new Padding(1, 0, 1, 0);
             lblLaggTillPodcast.Name = "lblLaggTillPodcast";
-            lblLaggTillPodcast.Size = new Size(255, 45);
+            lblLaggTillPodcast.Size = new Size(157, 28);
             lblLaggTillPodcast.TabIndex = 11;
             lblLaggTillPodcast.Text = "Lägg till podcast";
             // 
             // tbTitel
             // 
-            tbTitel.Location = new Point(71, 529);
-            tbTitel.Margin = new Padding(2, 2, 2, 2);
+            tbTitel.Location = new Point(44, 331);
+            tbTitel.Margin = new Padding(1, 1, 1, 1);
             tbTitel.Name = "tbTitel";
-            tbTitel.Size = new Size(331, 39);
+            tbTitel.Size = new Size(205, 27);
             tbTitel.TabIndex = 12;
             // 
             // lblKategori
             // 
             lblKategori.AutoSize = true;
-            lblKategori.Location = new Point(71, 582);
-            lblKategori.Margin = new Padding(2, 0, 2, 0);
+            lblKategori.Location = new Point(44, 364);
+            lblKategori.Margin = new Padding(1, 0, 1, 0);
             lblKategori.Name = "lblKategori";
-            lblKategori.Size = new Size(103, 32);
+            lblKategori.Size = new Size(66, 20);
             lblKategori.TabIndex = 14;
             lblKategori.Text = "Kategori";
             // 
             // cboxKategori
             // 
             cboxKategori.FormattingEnabled = true;
-            cboxKategori.Location = new Point(71, 617);
-            cboxKategori.Margin = new Padding(2, 2, 2, 2);
+            cboxKategori.Location = new Point(44, 386);
+            cboxKategori.Margin = new Padding(1, 1, 1, 1);
             cboxKategori.Name = "cboxKategori";
-            cboxKategori.Size = new Size(331, 40);
+            cboxKategori.Size = new Size(205, 28);
             cboxKategori.TabIndex = 15;
             // 
             // lblTitel
             // 
             lblTitel.AutoSize = true;
-            lblTitel.Location = new Point(71, 495);
-            lblTitel.Margin = new Padding(2, 0, 2, 0);
+            lblTitel.Location = new Point(44, 309);
+            lblTitel.Margin = new Padding(1, 0, 1, 0);
             lblTitel.Name = "lblTitel";
-            lblTitel.Size = new Size(79, 32);
+            lblTitel.Size = new Size(49, 20);
             lblTitel.TabIndex = 16;
             lblTitel.Text = "Namn";
             // 
@@ -195,20 +195,20 @@
             // 
             lblRedigeraPodcast.AutoSize = true;
             lblRedigeraPodcast.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRedigeraPodcast.Location = new Point(487, 431);
-            lblRedigeraPodcast.Margin = new Padding(2, 0, 2, 0);
+            lblRedigeraPodcast.Location = new Point(300, 269);
+            lblRedigeraPodcast.Margin = new Padding(1, 0, 1, 0);
             lblRedigeraPodcast.Name = "lblRedigeraPodcast";
-            lblRedigeraPodcast.Size = new Size(267, 45);
+            lblRedigeraPodcast.Size = new Size(164, 28);
             lblRedigeraPodcast.TabIndex = 18;
             lblRedigeraPodcast.Text = "Redigera podcast";
             // 
             // lblAvsnitt
             // 
             lblAvsnitt.AutoSize = true;
-            lblAvsnitt.Location = new Point(1062, 68);
-            lblAvsnitt.Margin = new Padding(2, 0, 2, 0);
+            lblAvsnitt.Location = new Point(654, 42);
+            lblAvsnitt.Margin = new Padding(1, 0, 1, 0);
             lblAvsnitt.Name = "lblAvsnitt";
-            lblAvsnitt.Size = new Size(87, 32);
+            lblAvsnitt.Size = new Size(54, 20);
             lblAvsnitt.TabIndex = 19;
             lblAvsnitt.Text = "Avsnitt";
             // 
@@ -216,38 +216,38 @@
             // 
             lblSorteraPodcast.AutoSize = true;
             lblSorteraPodcast.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSorteraPodcast.Location = new Point(71, 890);
-            lblSorteraPodcast.Margin = new Padding(2, 0, 2, 0);
+            lblSorteraPodcast.Location = new Point(44, 556);
+            lblSorteraPodcast.Margin = new Padding(1, 0, 1, 0);
             lblSorteraPodcast.Name = "lblSorteraPodcast";
-            lblSorteraPodcast.Size = new Size(244, 45);
+            lblSorteraPodcast.Size = new Size(151, 28);
             lblSorteraPodcast.TabIndex = 20;
             lblSorteraPodcast.Text = "Sortera podcast";
             // 
             // cboxSorteraPodcast
             // 
             cboxSorteraPodcast.FormattingEnabled = true;
-            cboxSorteraPodcast.Location = new Point(71, 990);
-            cboxSorteraPodcast.Margin = new Padding(2, 2, 2, 2);
+            cboxSorteraPodcast.Location = new Point(44, 619);
+            cboxSorteraPodcast.Margin = new Padding(1, 1, 1, 1);
             cboxSorteraPodcast.Name = "cboxSorteraPodcast";
-            cboxSorteraPodcast.Size = new Size(331, 40);
+            cboxSorteraPodcast.Size = new Size(205, 28);
             cboxSorteraPodcast.TabIndex = 21;
             // 
             // lblValjKategori
             // 
             lblValjKategori.AutoSize = true;
-            lblValjKategori.Location = new Point(71, 958);
-            lblValjKategori.Margin = new Padding(2, 0, 2, 0);
+            lblValjKategori.Location = new Point(44, 599);
+            lblValjKategori.Margin = new Padding(1, 0, 1, 0);
             lblValjKategori.Name = "lblValjKategori";
-            lblValjKategori.Size = new Size(145, 32);
+            lblValjKategori.Size = new Size(92, 20);
             lblValjKategori.TabIndex = 22;
             lblValjKategori.Text = "Välj kategori";
             // 
             // btnVisaPodcast
             // 
-            btnVisaPodcast.Location = new Point(71, 1062);
-            btnVisaPodcast.Margin = new Padding(2, 2, 2, 2);
+            btnVisaPodcast.Location = new Point(44, 664);
+            btnVisaPodcast.Margin = new Padding(1, 1, 1, 1);
             btnVisaPodcast.Name = "btnVisaPodcast";
-            btnVisaPodcast.Size = new Size(163, 47);
+            btnVisaPodcast.Size = new Size(100, 29);
             btnVisaPodcast.TabIndex = 23;
             btnVisaPodcast.Text = "Visa podcast";
             btnVisaPodcast.UseVisualStyleBackColor = true;
@@ -255,28 +255,28 @@
             // lboxPodcastInomKategori
             // 
             lboxPodcastInomKategori.FormattingEnabled = true;
-            lboxPodcastInomKategori.Location = new Point(71, 1148);
-            lboxPodcastInomKategori.Margin = new Padding(2, 2, 2, 2);
+            lboxPodcastInomKategori.Location = new Point(44, 718);
+            lboxPodcastInomKategori.Margin = new Padding(1, 1, 1, 1);
             lboxPodcastInomKategori.Name = "lboxPodcastInomKategori";
-            lboxPodcastInomKategori.Size = new Size(899, 356);
+            lboxPodcastInomKategori.Size = new Size(555, 224);
             lboxPodcastInomKategori.TabIndex = 24;
             // 
             // lblRedigeraKategori
             // 
             lblRedigeraKategori.AutoSize = true;
             lblRedigeraKategori.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRedigeraKategori.Location = new Point(487, 890);
-            lblRedigeraKategori.Margin = new Padding(2, 0, 2, 0);
+            lblRedigeraKategori.Location = new Point(300, 556);
+            lblRedigeraKategori.Margin = new Padding(1, 0, 1, 0);
             lblRedigeraKategori.Name = "lblRedigeraKategori";
-            lblRedigeraKategori.Size = new Size(271, 45);
+            lblRedigeraKategori.Size = new Size(167, 28);
             lblRedigeraKategori.TabIndex = 25;
             lblRedigeraKategori.Text = "Redigera kategori";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1857, 1463);
+            ClientSize = new Size(1143, 659);
             Controls.Add(lblRedigeraKategori);
             Controls.Add(lboxPodcastInomKategori);
             Controls.Add(btnVisaPodcast);
@@ -296,10 +296,10 @@
             Controls.Add(lblURL);
             Controls.Add(dgvPrenumerationer);
             Controls.Add(btnLaggTill);
-            Controls.Add(tbNamn);
+            Controls.Add(tbURL);
             Controls.Add(rtbBeskrivning);
             Controls.Add(lboxAvsnitt);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(1, 1, 1, 1);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dgvPrenumerationer).EndInit();
@@ -310,7 +310,7 @@
         #endregion
         private ListBox lboxAvsnitt;
         private RichTextBox rtbBeskrivning;
-        private TextBox tbNamn;
+        private TextBox tbURL;
         private Button btnLaggTill;
         private DataGridView dgvPrenumerationer;
         private Label lblRedigeraPodcast;
