@@ -1,4 +1,5 @@
 using BusinessLayer;
+using DataAccessLayer;
 using Models;
 
 namespace WinFormsApp1
@@ -7,7 +8,7 @@ namespace WinFormsApp1
     {
         //private PodcastController podcastController = new PodcastController();
         //private AvsnittController avsnittController = new AvsnittController();
-        //private KategoriController kategoriController = new KategoriContoller();
+        //private KategoriController kategoriController = new KategoriController();
 
     
         public Form1()
