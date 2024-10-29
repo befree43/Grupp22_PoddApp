@@ -17,9 +17,10 @@ public class PodcastController
         {
             Podcast newPodcast = await FetchPodcastFromRssAsync(category, name, url);
 
-            if (newPodcast == null)
+            if (newPodcast == null) {
                 throw new Exception("Error retrieving the podcast.");
-
+            }
+                
             // Use the repository to insert the podcast
             podcastRepository.InsertAsync(newPodcast);
 
