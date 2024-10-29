@@ -20,6 +20,12 @@ public class PodcastController
             if (newPodcast == null) {
                 throw new Exception("Error retrieving the podcast.");
             }
+
+            Podcast existingPodcast = await podcastRepository.GetByUrlAsync(newPodcast.Url);
+
+            if (existingPodcast != null) {
+                return false;
+            }
                 
             // Use the repository to insert the podcast
             podcastRepository.InsertAsync(newPodcast);

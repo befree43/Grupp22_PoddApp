@@ -30,17 +30,8 @@ namespace DataAccessLayer.Repository
 
         public void InsertAsync(Podcast podcast)
         {
-            Task<Podcast> existingPodcast = GetByUrlAsync(podcast.Url);
-
-            if (existingPodcast == null)
-            {
                 podcastList.Add(podcast);
                 SaveChangesAsync();
-            }
-            else {
-                throw new Exception("Podcast finns redan");
-            } 
-           
         }
 
         public void UpdateAsync(int index, Podcast newPodcast)

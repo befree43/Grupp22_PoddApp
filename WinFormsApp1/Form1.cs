@@ -13,9 +13,7 @@ namespace WinFormsApp1
     public partial class Form1 : Form    
     {
 
-        //private PodcastController podcastController = new PodcastController();
-        //private AvsnittController avsnittController = new AvsnittController();
-        //private KategoriController kategoriController = new KategoriController();
+    
 
 
         public Form1()
