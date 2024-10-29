@@ -1,6 +1,8 @@
 using System;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using BusinessLayer;
 using BusinessLayer.Controller;
 using DataAccessLayer;
@@ -10,7 +12,6 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form    
     {
-        private PodcastController podcastController;
 
         //private PodcastController podcastController = new PodcastController();
         //private AvsnittController avsnittController = new AvsnittController();
@@ -20,7 +21,7 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
-            podcastController = new PodcastController();
+            FilController.EnsureFileExists();
         }
 
 
@@ -31,7 +32,7 @@ namespace WinFormsApp1
             string kategori = cboxKategori.Text;
             string URL = tbURL.Text;
 
-            bool lyckades = await podcastController.LäggTillPodcastFrånRssAsync(kategori, namn, URL);
+            bool lyckades = await PodcastController.AddPodcastFromRssAsync(URL, kategori, namn);
 
             if (lyckades)
             {
@@ -47,5 +48,3 @@ namespace WinFormsApp1
     }
 }
 
-
-//RSS.HämtaPodcastFrånRss(kategori, namn, URL);

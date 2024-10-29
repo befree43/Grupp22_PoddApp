@@ -1,109 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Models;
-
-
 
 namespace DataAccessLayer.Repository
 {
     public class PodRepository : IRepository<Podcast>
     {
-        private readonly Serializer<Podcast> PodcastSerializer;
-        private List<Podcast> ListAvPodcastar;
+        private readonly Serializer<Podcast> podcastSerializer;
+        private List<Podcast> podcastList;
 
-        public PodRepository()
+        // Constructor now accepts a file path
+        public PodRepository(string filePath)
         {
-            PodcastSerializer = new Serializer<Podcast>("podcasts");
-            ListAvPodcastar = PodcastSerializer.Deserialize();
+            podcastSerializer = new Serializer<Podcast>(filePath);
+            podcastList = podcastSerializer.Deserialize(); 
         }
 
-        public List<Podcast> GetAll()
+        public Task<List<Podcast>> GetAllAsync()
         {
-            return ListAvPodcastar;
+            return Task.FromResult(podcastList);
         }
 
-        public Podcast GetByUrl(string url)
+        public Task<Podcast> GetByUrlAsync(string url)
         {
-            return ListAvPodcastar.FirstOrDefault(p => p.Url == url);
+            return Task.FromResult(podcastList.FirstOrDefault(p => p.Url == url));
         }
 
-        public void Insert(Podcast theObject)
+        public void InsertAsync(Podcast podcast)
         {
-            ListAvPodcastar.Add(theObject);
-            SaveChanges();
+            podcastList.Add(podcast);
+            SaveChangesAsync();
         }
 
-        public void Update(int index, Podcast theNewObject)
+        public void UpdateAsync(int index, Podcast newPodcast)
         {
-            if (index >= 0 && index < ListAvPodcastar.Count)
+            if (index >= 0 && index < podcastList.Count)
             {
-                ListAvPodcastar[index] = theNewObject;
+                podcastList[index] = newPodcast;
+                SaveChangesAsync();
             }
-            SaveChanges();
         }
 
-        public void Delete(int index)
+        public void DeleteAsync(int index)
         {
-            if (index >= 0 && index < ListAvPodcastar.Count)
+            if (index >= 0 && index < podcastList.Count)
             {
-                ListAvPodcastar.RemoveAt(index);
+                podcastList.RemoveAt(index);
+                SaveChangesAsync();
             }
-            SaveChanges();
         }
 
-        public void SaveChanges()
+        public void SaveChangesAsync()
         {
-            PodcastSerializer.Serialize(ListAvPodcastar);
+            podcastSerializer.Serialize(podcastList);
         }
     }
-
-    //Serializer<Podcast> PodcastSerializer;
-    //List<Podcast> ListAvPodcastar;
-    //public PodRepository()
-    //{
-    //    ListAvPodcastar = new List<Podcast>();
-    //    PodcastSerializer = new Serializer<Podcast>(nameof(ListAvPodcastar));
-    //}
-    //public List<Podcast> GetAll()
-    //{
-    //    return PodcastSerializer.Deserialize();
-    //}
-    //public Podcast GetByUrl(string url)
-    //{
-    //    Podcast Podcast = null;
-    //    foreach (var item in PodcastSerializer.Deserialize())
-    //    {
-    //        if (item.Url.Equals(url))
-    //        {
-    //            Podcast = item;
-    //        }
-    //    }
-    //    return Podcast;
-    //}
-    //public void Insert(Podcast theObject)
-    //{
-    //    ListAvPodcastar.Add(theObject);
-    //    SaveChanges();
-    //}
-    //public void Update(int index, Podcast theNewObject)
-    //{
-    //    if (index >= 0)
-    //    {
-    //        ListAvPodcastar[index] = theNewObject;
-    //    }
-    //    SaveChanges();
-    //}
-    //public void Delete(int index)
-    //{
-    //    ListAvPodcastar.RemoveAt(index);
-    //    SaveChanges();
-    //}
-    //public void SaveChanges()
-    //{
-    //    PodcastSerializer.Serialize(ListAvPodcastar);
-    //}
 }
-

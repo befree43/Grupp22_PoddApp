@@ -6,7 +6,6 @@
         public string? Namn { get; set; }
         public string? Kategori { get; set; }
         public string? Url { get; set; }
-        public List<Avsnitt> Avsnitt { get; set; } = new List<Avsnitt>();
 
 
 

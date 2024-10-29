@@ -1,52 +1,53 @@
-﻿using DataAccessLayer;
-using DataAccessLayer.Repository;
-using Models;
-using System.Linq.Expressions;
+﻿using DataAccessLayer.Repository;
+using System;
 using System.Threading.Tasks;
+using Models;
+using BusinessLayer.Controller;
+using System.ServiceModel.Syndication;
+using System.Xml;
 
-namespace BusinessLayer.Controller
+public class PodcastController
 {
-    public class PodcastController
+    private static readonly string filePath = FilController.GetFilePath();
+    private static readonly PodRepository podcastRepository = new PodRepository(filePath);
+
+    public static async Task<bool> AddPodcastFromRssAsync(string url, string category, string name)
     {
-        private readonly IRepository<Podcast> podcastRepository;
-
-        public PodcastController()
+        try
         {
-            podcastRepository = new PodRepository();
+            Podcast newPodcast = await FetchPodcastFromRssAsync(category, name, url);
+
+            if (newPodcast == null)
+                throw new Exception("Error retrieving the podcast.");
+
+            // Use the repository to insert the podcast
+            podcastRepository.InsertAsync(newPodcast);
+
+            return true;
         }
-        public async Task<bool> LäggTillPodcastFrånRssAsync(string kategori, string namn, string url)
+        catch (Exception ex)
         {
-            try
-            {
+            Console.WriteLine($"Error adding the podcast: {ex.Message}");
+            return false;
+        }
+    }
 
-                // Hämta podcast och dess avsnitt från RSS
-                Podcast podcast = await RSS.HämtaPodcastFrånRssAsync(kategori, namn, url);
-
-                if (podcast != null)
-                {
-                    podcastRepository.Insert(podcast);  // Spara podcasten i databasen
-                    return true;
-            }
-            else
+    public static async Task<Podcast> FetchPodcastFromRssAsync(string category, string name, string url)
+    {
+        try
+        {
+            using (XmlReader xmlReader = XmlReader.Create(url))
             {
-                Console.WriteLine("Podcast kunde inte hämtas från angiven URL");
-                return false;
+                SyndicationFeed podcastFeed = await Task.Run(() => SyndicationFeed.Load(xmlReader));
+                if (podcastFeed == null) throw new Exception("The RSS feed could not be read.");
+
+                return new Podcast(podcastFeed.Title.Text, category, name, url);
             }
         }
         catch (Exception ex)
-            {
-            Console.WriteLine($"Fel vid hämtning av podcast från RSS: {ex.Message}");
-            return false;
-            }
+        {
+            Console.WriteLine($"Error fetching the RSS feed: {ex.Message}");
+            return null;
+        }
     }
 }
-}
-
-
-
-
-
-
-
-
-//test uppdatering9
