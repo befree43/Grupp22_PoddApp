@@ -1,5 +1,6 @@
 ﻿namespace Models
 {
+    [Serializable]
     public class Podcast
     {
         public string? Titel { get; set; }

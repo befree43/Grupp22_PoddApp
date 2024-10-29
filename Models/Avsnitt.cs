@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    [Serializable]
     public class Avsnitt
     {
         public string? Titel {  get; set; }
@@ -18,5 +19,7 @@ namespace Models
             Beskrivning = beskrivning;
             Id = id;
         }
+
+        public Avsnitt() { }
     }
 }

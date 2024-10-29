@@ -34,14 +34,27 @@ namespace DataAccessLayer
 
         public List<T> Deserialize()
         {
-            List<T> listan;
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<T>));
-            using (FileStream xmlIn =
-                new FileStream(fileName, FileMode.Open, FileAccess.Read))
+            if (!File.Exists(fileName) || new FileInfo(fileName).Length == 0)
             {
-                listan = (List<T>)xmlSerializer.Deserialize(xmlIn);
+                // Om filen inte existerar eller är tom, returnera en tom lista
+                return new List<T>();
             }
-            return listan;
+
+            try
+            {
+                List<T> listan;
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<T>));
+                using (FileStream xmlIn = new FileStream(fileName, FileMode.Open, FileAccess.Read))
+                {
+                    listan = (List<T>)xmlSerializer.Deserialize(xmlIn);
+                }
+                return listan;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fel vid deserialisering: {ex.Message}");
+                return new List<T>(); // Returnera en tom lista vid fel
+            }
         }
     }
 }
