@@ -32,7 +32,6 @@
             rtbBeskrivning = new RichTextBox();
             tbURL = new TextBox();
             btnLaggTillPodcast = new Button();
-            dgvPrenumerationer = new DataGridView();
             lblURL = new Label();
             lblBeskrivning = new Label();
             Prenumerationer = new Label();
@@ -50,7 +49,10 @@
             btnVisaPodcast = new Button();
             lboxPodcastInomKategori = new ListBox();
             lblRedigeraKategori = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvPrenumerationer).BeginInit();
+            lvPrenumerationer = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
             SuspendLayout();
             // 
             // lboxAvsnitt
@@ -90,18 +92,6 @@
             btnLaggTillPodcast.Text = "Lägg till";
             btnLaggTillPodcast.UseVisualStyleBackColor = true;
             btnLaggTillPodcast.Click += btnLaggTillPodcast_Click;
-            // 
-            // dgvPrenumerationer
-            // 
-            dgvPrenumerationer.BackgroundColor = SystemColors.GradientInactiveCaption;
-            dgvPrenumerationer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPrenumerationer.GridColor = SystemColors.GradientInactiveCaption;
-            dgvPrenumerationer.Location = new Point(38, 50);
-            dgvPrenumerationer.Margin = new Padding(1);
-            dgvPrenumerationer.Name = "dgvPrenumerationer";
-            dgvPrenumerationer.RowHeadersWidth = 123;
-            dgvPrenumerationer.Size = new Size(486, 141);
-            dgvPrenumerationer.TabIndex = 5;
             // 
             // lblURL
             // 
@@ -274,11 +264,39 @@
             lblRedigeraKategori.TabIndex = 25;
             lblRedigeraKategori.Text = "Redigera kategori";
             // 
+            // lvPrenumerationer
+            // 
+            lvPrenumerationer.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            lvPrenumerationer.FullRowSelect = true;
+            lvPrenumerationer.Location = new Point(38, 50);
+            lvPrenumerationer.MultiSelect = false;
+            lvPrenumerationer.Name = "lvPrenumerationer";
+            lvPrenumerationer.Size = new Size(486, 138);
+            lvPrenumerationer.TabIndex = 26;
+            lvPrenumerationer.UseCompatibleStateImageBehavior = false;
+            lvPrenumerationer.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Namn";
+            columnHeader1.Width = 90;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Titel";
+            columnHeader2.Width = 90;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Kategori";
+            columnHeader3.Width = 90;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 848);
+            Controls.Add(lvPrenumerationer);
             Controls.Add(lblRedigeraKategori);
             Controls.Add(lboxPodcastInomKategori);
             Controls.Add(btnVisaPodcast);
@@ -296,7 +314,6 @@
             Controls.Add(Prenumerationer);
             Controls.Add(lblBeskrivning);
             Controls.Add(lblURL);
-            Controls.Add(dgvPrenumerationer);
             Controls.Add(btnLaggTillPodcast);
             Controls.Add(tbURL);
             Controls.Add(rtbBeskrivning);
@@ -304,7 +321,6 @@
             Margin = new Padding(1);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dgvPrenumerationer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -314,7 +330,6 @@
         private RichTextBox rtbBeskrivning;
         private TextBox tbURL;
         private Button btnLaggTill;
-        private DataGridView dgvPrenumerationer;
         private Label lblRedigeraPodcast;
         private Label lblURL;
         private Label lblBeskrivning;
@@ -333,5 +348,9 @@
         private ListBox lboxPodcastInomKategori;
         private Label lblRedigeraKategori;
         private Button btnLaggTillPodcast;
+        private ListView lvPrenumerationer;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
     }
 }
