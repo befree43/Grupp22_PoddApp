@@ -278,7 +278,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 494);
+            ClientSize = new Size(1000, 848);
             Controls.Add(lblRedigeraKategori);
             Controls.Add(lboxPodcastInomKategori);
             Controls.Add(btnVisaPodcast);
