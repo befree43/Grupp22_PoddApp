@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    [Serializable]
     public class Kategori
     {
-        public string? Namn;
+        public string? KategoriNamn { get; set }
+        public string? KategoriUrl { get; set; }
         
-        public Kategori(string? namn)
+        public Kategori(string? kategoriNamn, string? kategoriUrl)
         {
-            Namn = namn;
+            KategoriNamn = kategoriNamn;
+            KategoriUrl = kategoriUrl;
         }
+        public Kategori() { }
     }
 }
