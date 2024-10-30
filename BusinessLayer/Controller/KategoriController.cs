@@ -29,6 +29,11 @@ namespace DataAccessLayer.Repository
             kategoriRepository.Delete(index);
         }
 
+        public void updateKategory(int index, Kategori kategori)
+        {
+            kategoriRepository.Update(index,kategori);
+        }
+
     }
 
 }

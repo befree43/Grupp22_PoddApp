@@ -165,6 +165,7 @@ namespace WinFormsApp1
                 kategoriController.deleteCategory(lboxKategori.SelectedIndex);
                 LoadCategoriesToComboBox();
                 LoadCategoryToListBox();
+                tbNyKategori.Clear();
             }
         }
 
@@ -174,6 +175,17 @@ namespace WinFormsApp1
             {
                 string selectedCategory = lboxKategori.SelectedItem.ToString();
                 tbNyKategori.Text = selectedCategory;
+            }
+        }
+
+        private void btnÄndraKategori_Click(object sender, EventArgs e)
+        {
+            if (lboxKategori.SelectedIndex != -1)
+            {
+                Kategori newCategory = new Kategori(tbNyKategori.Text);
+                kategoriController.updateKategory(lboxKategori.SelectedIndex, newCategory);
+                LoadCategoriesToComboBox();
+                LoadCategoryToListBox();
             }
         }
     }

@@ -323,6 +323,7 @@
             btnÄndraKategori.TabIndex = 29;
             btnÄndraKategori.Text = "Ändra";
             btnÄndraKategori.UseVisualStyleBackColor = true;
+            btnÄndraKategori.Click += btnÄndraKategori_Click;
             // 
             // btnTaBortKategori
             // 
