@@ -8,23 +8,21 @@ using Models;
 
 namespace WinFormsApp1
 {
-    public partial class Form1 : Form    
+    public partial class Form1 : Form
     {
         private PodcastController podcastController;
-
-        //private PodcastController podcastController = new PodcastController();
-        //private AvsnittController avsnittController = new AvsnittController();
-        //private KategoriController kategoriController = new KategoriController();
+        private Serializer<Podcast> podcastSerializer;
 
 
         public Form1()
         {
             InitializeComponent();
             podcastController = new PodcastController();
+            podcastSerializer = new Serializer<Podcast>("podcasts");
+            LoadPodcastsToListView();
         }
 
 
-       
         private async void btnLaggTillPodcast_Click(object sender, EventArgs e)
         {
             string namn = tbTitel.Text;
@@ -36,13 +34,32 @@ namespace WinFormsApp1
             if (lyckades)
             {
                 MessageBox.Show("Podcasten har lagts till!");
+                LoadPodcastsToListView();
             }
             else
             {
                 MessageBox.Show("Kunde inte lägga till podcasten. Kontrollera URL och försök igen.");
             }
-       
 
+
+        }
+
+        private void LoadPodcastsToListView()
+        {
+            List<Podcast> podcasts = podcastSerializer.Deserialize();
+            lvPrenumerationer.Items.Clear(); // Rensa ListView innan den fylls på nytt
+            foreach (var podcast in podcasts)
+            {
+                ListViewItem item = new ListViewItem(podcast.Namn);
+                item.SubItems.Add(podcast.Url); // Lägg till andra subitems om det behövs
+                lvPrenumerationer.Items.Add(item); 
+            }
+
+        }
+
+        private void lvPrenumerationer_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            // Hantera händelsen när ett objekt väljs i ListView, om nödvändigt
         }
     }
 }
