@@ -1,18 +1,20 @@
-﻿using DataAccessLayer.Repository;
-using DataAccessLayer;
+﻿
 using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BusinessLayer.Controller
+
+
+namespace DataAccessLayer.Repository
 {
-    class KategoriController
+    public class KategoriController 
     {
+        private readonly IRepository<Kategori> kategoriRepository;
+
+        public KategoriController()
+        {
+            kategoriRepository = new KategoriRepository();
+        }
+
     }
+
 }
 
-
-    
