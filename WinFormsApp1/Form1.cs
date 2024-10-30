@@ -13,7 +13,6 @@ namespace WinFormsApp1
         private PodcastController podcastController;
         private Serializer<Podcast> podcastSerializer;
 
-
         public Form1()
         {
             InitializeComponent();
@@ -52,14 +51,43 @@ namespace WinFormsApp1
             {
                 ListViewItem item = new ListViewItem(podcast.Namn);
                 item.SubItems.Add(podcast.Url); // Lägg till andra subitems om det behövs
-                lvPrenumerationer.Items.Add(item); 
+                lvPrenumerationer.Items.Add(item);
             }
 
         }
 
         private void lvPrenumerationer_SelectedIndexChanged(object sender, EventArgs e)
-        { 
-            // Hantera händelsen när ett objekt väljs i ListView, om nödvändigt
+        {
+            if (lvPrenumerationer.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = lvPrenumerationer.SelectedItems[0];
+
+                string url = selectedItem.SubItems[1].Text;
+
+                LoadAvsnittToListBox(url);
+
+            }
+        }
+
+        private async Task LoadAvsnittToListBox(string podcastUrl)
+        {
+            try
+            {
+                List<Avsnitt> avsnittList = await podcastController.LäggTillAvsnittFrånRssAsync(podcastUrl);
+
+                lboxAvsnitt.Items.Clear(); 
+                if (avsnittList != null)
+                {
+                    foreach (var avsnitt in avsnittList)
+                    {
+                        lboxAvsnitt.Items.Add(avsnitt.Titel);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }
