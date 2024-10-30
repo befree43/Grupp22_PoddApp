@@ -53,6 +53,11 @@
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
+            tbKategoriJustera = new TextBox();
+            btnLäggTillKategori = new Button();
+            btnÄndraKategori = new Button();
+            btnTaBortKategori = new Button();
+            lboxKategori = new ListBox();
             SuspendLayout();
             // 
             // lboxAvsnitt
@@ -256,7 +261,7 @@
             // 
             lblRedigeraKategori.AutoSize = true;
             lblRedigeraKategori.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRedigeraKategori.Location = new Point(459, 889);
+            lblRedigeraKategori.Location = new Point(487, 756);
             lblRedigeraKategori.Margin = new Padding(2, 0, 2, 0);
             lblRedigeraKategori.Name = "lblRedigeraKategori";
             lblRedigeraKategori.Size = new Size(271, 45);
@@ -292,11 +297,58 @@
             columnHeader3.Text = "Kategori";
             columnHeader3.Width = 90;
             // 
+            // tbKategoriJustera
+            // 
+            tbKategoriJustera.Location = new Point(479, 825);
+            tbKategoriJustera.Name = "tbKategoriJustera";
+            tbKategoriJustera.Size = new Size(466, 39);
+            tbKategoriJustera.TabIndex = 27;
+            // 
+            // btnLäggTillKategori
+            // 
+            btnLäggTillKategori.Location = new Point(479, 885);
+            btnLäggTillKategori.Name = "btnLäggTillKategori";
+            btnLäggTillKategori.Size = new Size(150, 46);
+            btnLäggTillKategori.TabIndex = 28;
+            btnLäggTillKategori.Text = "Lägg till";
+            btnLäggTillKategori.UseVisualStyleBackColor = true;
+            // 
+            // btnÄndraKategori
+            // 
+            btnÄndraKategori.Location = new Point(635, 885);
+            btnÄndraKategori.Name = "btnÄndraKategori";
+            btnÄndraKategori.Size = new Size(150, 46);
+            btnÄndraKategori.TabIndex = 29;
+            btnÄndraKategori.Text = "Ändra";
+            btnÄndraKategori.UseVisualStyleBackColor = true;
+            // 
+            // btnTaBortKategori
+            // 
+            btnTaBortKategori.Location = new Point(795, 885);
+            btnTaBortKategori.Name = "btnTaBortKategori";
+            btnTaBortKategori.Size = new Size(150, 46);
+            btnTaBortKategori.TabIndex = 30;
+            btnTaBortKategori.Text = "Ta bort";
+            btnTaBortKategori.UseVisualStyleBackColor = true;
+            // 
+            // lboxKategori
+            // 
+            lboxKategori.FormattingEnabled = true;
+            lboxKategori.Location = new Point(487, 958);
+            lboxKategori.Name = "lboxKategori";
+            lboxKategori.Size = new Size(452, 164);
+            lboxKategori.TabIndex = 31;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1857, 1462);
+            Controls.Add(lboxKategori);
+            Controls.Add(btnTaBortKategori);
+            Controls.Add(btnÄndraKategori);
+            Controls.Add(btnLäggTillKategori);
+            Controls.Add(tbKategoriJustera);
             Controls.Add(lvPrenumerationer);
             Controls.Add(lblRedigeraKategori);
             Controls.Add(lboxPodcastInomKategori);
@@ -353,5 +405,10 @@
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
+        private TextBox tbKategoriJustera;
+        private Button btnLäggTillKategori;
+        private Button btnÄndraKategori;
+        private Button btnTaBortKategori;
+        private ListBox lboxKategori;
     }
 }
