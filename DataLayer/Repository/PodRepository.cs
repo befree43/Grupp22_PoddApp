@@ -59,7 +59,16 @@ namespace DataAccessLayer.Repository
             PodcastSerializer.Serialize(ListAvPodcastar);
         }
 
-       
+        public List<Podcast> FilterPodcastsByCategory(string categoryName)
+        {
+            List<Podcast> podcasts = GetAll();
+
+            var filteredPodcasts = podcasts.Where(p => p.Kategori.namn == categoryName).ToList();
+
+            return filteredPodcasts;
+        }
+
+
     }
 
 }

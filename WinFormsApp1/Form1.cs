@@ -26,7 +26,7 @@ namespace WinFormsApp1
 
             LoadPodcastsToListView();
             LoadCategoryToListBox();
-            LoadCategoriesToComboBox();
+            LoadCategoriesToComboBoxes();
 
             btnÄndraKategori.Visible = false;
         }
@@ -126,6 +126,7 @@ namespace WinFormsApp1
             string kategoriNamn = tbNyKategori.Text;
             kategoriController.LäggTillKategori(kategoriNamn);
             LoadCategoryToListBox();
+            LoadCategoriesToComboBoxes();
         }
 
         private void LoadCategoryToListBox()
@@ -142,22 +143,27 @@ namespace WinFormsApp1
 
         }
 
-        private void LoadCategoriesToComboBox()
+        private void LoadCategoriesToComboBoxes()
         {
             List<Kategori> kategorier = kategoriController.getAllCategory();
 
             cboxKategori.Items.Clear();
+            cboxSorteraPodcast.Items.Clear();
 
             cboxKategori.Items.Add("Välj en kategori");
+            cboxSorteraPodcast.Items.Add("Välj en kategori");
 
             cboxKategori.DisplayMember = "namn";
+            cboxSorteraPodcast.DisplayMember = "namn";
 
             foreach (var kategori in kategorier)
             {
                 cboxKategori.Items.Add(kategori);
+                cboxSorteraPodcast.Items.Add(kategori);
             }
 
             cboxKategori.SelectedIndex = 0;
+            cboxSorteraPodcast.SelectedIndex = 0;
         }
 
         private void btnTaBortKategori_Click(object sender, EventArgs e)
@@ -165,7 +171,7 @@ namespace WinFormsApp1
             if (lboxKategori.SelectedIndex != -1)
             {
                 kategoriController.deleteCategory(lboxKategori.SelectedIndex);
-                LoadCategoriesToComboBox();
+                LoadCategoriesToComboBoxes();
                 LoadCategoryToListBox();
                 tbNyKategori.Clear();
             }
@@ -186,7 +192,7 @@ namespace WinFormsApp1
             {
                 Kategori newCategory = new Kategori(tbNyKategori.Text);
                 kategoriController.updateKategory(lboxKategori.SelectedIndex, newCategory);
-                LoadCategoriesToComboBox();
+                LoadCategoriesToComboBoxes();
                 LoadCategoryToListBox();
             }
         }

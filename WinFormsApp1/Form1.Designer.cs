@@ -222,6 +222,7 @@
             // 
             // cboxSorteraPodcast
             // 
+            cboxSorteraPodcast.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxSorteraPodcast.FormattingEnabled = true;
             cboxSorteraPodcast.Location = new Point(71, 990);
             cboxSorteraPodcast.Margin = new Padding(2);

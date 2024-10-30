@@ -55,6 +55,14 @@ namespace BusinessLayer.Controller
             }
         }
 
+        public List<Podcast> FilterPodByCategory(string categoryName)
+        {
+            var podcastRepo = (PodRepository)podcastRepository;
+            List<Podcast> filteredPodcasts = podcastRepo.FilterPodcastsByCategory(categoryName);
+
+            return filteredPodcasts;
+        }
+
     }
 }
 
