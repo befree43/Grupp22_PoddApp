@@ -15,14 +15,18 @@ namespace WinFormsApp1
         private Serializer<Podcast> podcastSerializer;
 
         private KategoriController kategoriController;
-
+        private Serializer<Kategori> kategoriSerializer;
         public Form1()
         {
             InitializeComponent();
             podcastController = new PodcastController();
             podcastSerializer = new Serializer<Podcast>("podcasts");
+
             kategoriController = new KategoriController();
+            kategoriSerializer = new Serializer<Kategori>("categories");
+
             LoadPodcastsToListView();
+            LoadCategoryToListBox();
         }
 
 
@@ -109,7 +113,22 @@ namespace WinFormsApp1
         private void btnLäggTillKategori_Click(object sender, EventArgs e)
         {
             string kategoriNamn = tbNyKategori.Text;
-            kategoriController.LäggTillKategori(kategoriNamn);  
+            kategoriController.LäggTillKategori(kategoriNamn);
+            LoadCategoryToListBox();
+        }
+
+        private void LoadCategoryToListBox()
+        {
+            List<Kategori> kategorier = kategoriSerializer.Deserialize();
+            lboxKategori.Items.Clear();
+            if (kategorier != null)
+            {
+                foreach (var kategori in kategorier)
+                {
+                    lboxKategori.Items.Add(kategori.namn);
+                }
+            }
+
         }
     }
 }

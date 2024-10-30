@@ -16,7 +16,7 @@ namespace DataAccessLayer.Repository
 
         public KategoriRepository()
         {
-            KategoriSerializer = new Serializer<Kategori>("kategorier");
+            KategoriSerializer = new Serializer<Kategori>("categories");
             ListAvKategorier = KategoriSerializer.Deserialize();
         }
 
