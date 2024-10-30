@@ -50,7 +50,8 @@ namespace WinFormsApp1
             foreach (var podcast in podcasts)
             {
                 ListViewItem item = new ListViewItem(podcast.Namn);
-                item.SubItems.Add(podcast.Url); // Lägg till andra subitems om det behövs
+                item.SubItems.Add(podcast.Url);
+                item.SubItems.Add(podcast.Kategori.namn);// Lägg till andra subitems om det behövs
                 lvPrenumerationer.Items.Add(item);
             }
 
