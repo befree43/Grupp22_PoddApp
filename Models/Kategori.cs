@@ -11,7 +11,9 @@ namespace Models
     {
         public string? KategoriNamn { get; set; }
         public string? KategoriUrl { get; set; }
-        
+
+        public List<Podcast> Podcasts { get; set; }
+
         public Kategori(string? kategoriNamn, string? kategoriUrl)
         {
             KategoriNamn = kategoriNamn;
