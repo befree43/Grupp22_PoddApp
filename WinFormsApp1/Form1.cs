@@ -27,6 +27,8 @@ namespace WinFormsApp1
             LoadPodcastsToListView();
             LoadCategoryToListBox();
             LoadCategoriesToComboBox();
+
+            btnÄndraKategori.Visible = false;
         }
 
 
@@ -187,6 +189,14 @@ namespace WinFormsApp1
                 LoadCategoriesToComboBox();
                 LoadCategoryToListBox();
             }
+        }
+
+        private void tbNyKategori_TextChanged(object sender, EventArgs e)
+        {
+            if (lboxKategori.SelectedIndex != -1) {
+                btnÄndraKategori.Visible = true;
+            }
+               
         }
     }
 }

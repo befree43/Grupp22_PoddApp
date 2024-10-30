@@ -304,6 +304,7 @@
             tbNyKategori.Name = "tbNyKategori";
             tbNyKategori.Size = new Size(466, 39);
             tbNyKategori.TabIndex = 27;
+            tbNyKategori.TextChanged += tbNyKategori_TextChanged;
             // 
             // btnLäggTillKategori
             // 
