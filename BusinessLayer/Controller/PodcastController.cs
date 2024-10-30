@@ -14,7 +14,7 @@ namespace BusinessLayer.Controller
         {
             podcastRepository = new PodRepository();
         }
-        public async Task<bool> LäggTillPodcastFrånRssAsync(string kategori, string namn, string url)
+        public async Task<bool> LäggTillPodcastFrånRssAsync(Kategori kategori, string namn, string url)
         {
             try
             {

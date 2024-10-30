@@ -59,56 +59,8 @@ namespace DataAccessLayer.Repository
             PodcastSerializer.Serialize(ListAvPodcastar);
         }
 
-        public Podcast GetByName(string namn)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
-    //Serializer<Podcast> PodcastSerializer;
-    //List<Podcast> ListAvPodcastar;
-    //public PodRepository()
-    //{
-    //    ListAvPodcastar = new List<Podcast>();
-    //    PodcastSerializer = new Serializer<Podcast>(nameof(ListAvPodcastar));
-    //}
-    //public List<Podcast> GetAll()
-    //{
-    //    return PodcastSerializer.Deserialize();
-    //}
-    //public Podcast GetByUrl(string url)
-    //{
-    //    Podcast Podcast = null;
-    //    foreach (var item in PodcastSerializer.Deserialize())
-    //    {
-    //        if (item.Url.Equals(url))
-    //        {
-    //            Podcast = item;
-    //        }
-    //    }
-    //    return Podcast;
-    //}
-    //public void Insert(Podcast theObject)
-    //{
-    //    ListAvPodcastar.Add(theObject);
-    //    SaveChanges();
-    //}
-    //public void Update(int index, Podcast theNewObject)
-    //{
-    //    if (index >= 0)
-    //    {
-    //        ListAvPodcastar[index] = theNewObject;
-    //    }
-    //    SaveChanges();
-    //}
-    //public void Delete(int index)
-    //{
-    //    ListAvPodcastar.RemoveAt(index);
-    //    SaveChanges();
-    //}
-    //public void SaveChanges()
-    //{
-    //    PodcastSerializer.Serialize(ListAvPodcastar);
-    //}
 }
 

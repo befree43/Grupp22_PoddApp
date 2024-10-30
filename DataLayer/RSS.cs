@@ -12,7 +12,7 @@ namespace DataAccessLayer
 {
     public class RSS
     {
-        public static async Task<Podcast> HämtaPodcastFrånRssAsync(string kategori, string namn, string url)
+        public static async Task<Podcast> HämtaPodcastFrånRssAsync(Kategori kategori, string namn, string url)
         {
             // Hämta användarens dokumentmapp
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

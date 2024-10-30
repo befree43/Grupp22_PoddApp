@@ -59,10 +59,7 @@ namespace DataAccessLayer.Repository
             KategoriSerializer.Serialize(ListAvKategorier);
         }
 
-        public Kategori GetByUrl(string url) // Implementera metoden
-        {
-            return ListAvKategorier.FirstOrDefault(k => k.url == url);
-        }
+        
     }
 }
 
