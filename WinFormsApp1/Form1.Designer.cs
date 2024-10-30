@@ -53,7 +53,7 @@
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
-            tbKategoriJustera = new TextBox();
+            tbNyKategori = new TextBox();
             btnLäggTillKategori = new Button();
             btnÄndraKategori = new Button();
             btnTaBortKategori = new Button();
@@ -297,12 +297,12 @@
             columnHeader3.Text = "Kategori";
             columnHeader3.Width = 90;
             // 
-            // tbKategoriJustera
+            // tbNyKategori
             // 
-            tbKategoriJustera.Location = new Point(479, 825);
-            tbKategoriJustera.Name = "tbKategoriJustera";
-            tbKategoriJustera.Size = new Size(466, 39);
-            tbKategoriJustera.TabIndex = 27;
+            tbNyKategori.Location = new Point(479, 825);
+            tbNyKategori.Name = "tbNyKategori";
+            tbNyKategori.Size = new Size(466, 39);
+            tbNyKategori.TabIndex = 27;
             // 
             // btnLäggTillKategori
             // 
@@ -312,6 +312,7 @@
             btnLäggTillKategori.TabIndex = 28;
             btnLäggTillKategori.Text = "Lägg till";
             btnLäggTillKategori.UseVisualStyleBackColor = true;
+            btnLäggTillKategori.Click += btnLäggTillKategori_Click;
             // 
             // btnÄndraKategori
             // 
@@ -348,7 +349,7 @@
             Controls.Add(btnTaBortKategori);
             Controls.Add(btnÄndraKategori);
             Controls.Add(btnLäggTillKategori);
-            Controls.Add(tbKategoriJustera);
+            Controls.Add(tbNyKategori);
             Controls.Add(lvPrenumerationer);
             Controls.Add(lblRedigeraKategori);
             Controls.Add(lboxPodcastInomKategori);
@@ -405,7 +406,7 @@
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
-        private TextBox tbKategoriJustera;
+        private TextBox tbNyKategori;
         private Button btnLäggTillKategori;
         private Button btnÄndraKategori;
         private Button btnTaBortKategori;

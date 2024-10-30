@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using BusinessLayer;
 using BusinessLayer.Controller;
 using DataAccessLayer;
+using DataAccessLayer.Repository;
 using Models;
 
 namespace WinFormsApp1
@@ -13,11 +14,14 @@ namespace WinFormsApp1
         private PodcastController podcastController;
         private Serializer<Podcast> podcastSerializer;
 
+        private KategoriController kategoriController;
+
         public Form1()
         {
             InitializeComponent();
             podcastController = new PodcastController();
             podcastSerializer = new Serializer<Podcast>("podcasts");
+            kategoriController = new KategoriController();
             LoadPodcastsToListView();
         }
 
@@ -100,6 +104,12 @@ namespace WinFormsApp1
                 Avsnitt selectedAvsnitt = (Avsnitt)lboxAvsnitt.SelectedItem;
                 rtbBeskrivning.Text = selectedAvsnitt.Beskrivning;
             }
+        }
+
+        private void btnLäggTillKategori_Click(object sender, EventArgs e)
+        {
+            string kategoriNamn = tbNyKategori.Text;
+            kategoriController.LäggTillKategori(kategoriNamn);  
         }
     }
 }
