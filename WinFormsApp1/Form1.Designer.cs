@@ -332,6 +332,7 @@
             btnTaBortKategori.TabIndex = 30;
             btnTaBortKategori.Text = "Ta bort";
             btnTaBortKategori.UseVisualStyleBackColor = true;
+            btnTaBortKategori.Click += btnTaBortKategori_Click;
             // 
             // lboxKategori
             // 
@@ -340,6 +341,7 @@
             lboxKategori.Name = "lboxKategori";
             lboxKategori.Size = new Size(452, 164);
             lboxKategori.TabIndex = 31;
+            lboxKategori.SelectedIndexChanged += lboxKategori_SelectedIndexChanged;
             // 
             // Form1
             // 

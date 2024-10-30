@@ -24,6 +24,11 @@ namespace DataAccessLayer.Repository
             return kategoriRepository.GetAll();
         }
 
+        public void deleteCategory(int index)
+        {
+            kategoriRepository.Delete(index);
+        }
+
     }
 
 }

@@ -23,7 +23,7 @@ namespace WinFormsApp1
             podcastSerializer = new Serializer<Podcast>("podcasts");
 
             kategoriController = new KategoriController();
-            
+
             LoadPodcastsToListView();
             LoadCategoryToListBox();
             LoadCategoriesToComboBox();
@@ -40,7 +40,7 @@ namespace WinFormsApp1
                 MessageBox.Show("Välj en kategori!");
 
             }
-            else 
+            else
             {
                 string URL = tbURL.Text;
 
@@ -56,7 +56,7 @@ namespace WinFormsApp1
                     MessageBox.Show("Kunde inte lägga till podcasten. Kontrollera URL och försök igen.");
                 }
             }
-            
+
 
 
         }
@@ -148,7 +148,7 @@ namespace WinFormsApp1
 
             cboxKategori.Items.Add("Välj en kategori");
 
-            cboxKategori.DisplayMember = "namn"; 
+            cboxKategori.DisplayMember = "namn";
 
             foreach (var kategori in kategorier)
             {
@@ -156,6 +156,25 @@ namespace WinFormsApp1
             }
 
             cboxKategori.SelectedIndex = 0;
+        }
+
+        private void btnTaBortKategori_Click(object sender, EventArgs e)
+        {
+            if (lboxKategori.SelectedIndex != -1)
+            {
+                kategoriController.deleteCategory(lboxKategori.SelectedIndex);
+                LoadCategoriesToComboBox();
+                LoadCategoryToListBox();
+            }
+        }
+
+        private void lboxKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lboxKategori.SelectedIndex != -1)
+            {
+                string selectedCategory = lboxKategori.SelectedItem.ToString();
+                tbNyKategori.Text = selectedCategory;
+            }
         }
     }
 }
