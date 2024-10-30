@@ -20,6 +20,10 @@ namespace DataAccessLayer.Repository
             kategoriRepository.Insert(nyKategori);  
         }
 
+        public List<Kategori> getAllCategory() { 
+            return kategoriRepository.GetAll();
+        }
+
     }
 
 }

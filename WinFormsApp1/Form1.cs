@@ -15,7 +15,7 @@ namespace WinFormsApp1
         private Serializer<Podcast> podcastSerializer;
 
         private KategoriController kategoriController;
-        private Serializer<Kategori> kategoriSerializer;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,10 +23,10 @@ namespace WinFormsApp1
             podcastSerializer = new Serializer<Podcast>("podcasts");
 
             kategoriController = new KategoriController();
-            kategoriSerializer = new Serializer<Kategori>("categories");
-
+            
             LoadPodcastsToListView();
             LoadCategoryToListBox();
+            LoadCategoriesToComboBox();
         }
 
 
@@ -34,19 +34,29 @@ namespace WinFormsApp1
         {
             string namn = tbTitel.Text;
             Kategori kategori = new Kategori(cboxKategori.Text);
-            string URL = tbURL.Text;
 
-            bool lyckades = await podcastController.LäggTillPodcastFrånRssAsync(kategori, namn, URL);
+            if (cboxKategori.Text == "Välj en kategori")
+            {
+                MessageBox.Show("Välj en kategori!");
 
-            if (lyckades)
-            {
-                MessageBox.Show("Podcasten har lagts till!");
-                LoadPodcastsToListView();
             }
-            else
+            else 
             {
-                MessageBox.Show("Kunde inte lägga till podcasten. Kontrollera URL och försök igen.");
+                string URL = tbURL.Text;
+
+                bool lyckades = await podcastController.LäggTillPodcastFrånRssAsync(kategori, namn, URL);
+
+                if (lyckades)
+                {
+                    MessageBox.Show("Podcasten har lagts till!");
+                    LoadPodcastsToListView();
+                }
+                else
+                {
+                    MessageBox.Show("Kunde inte lägga till podcasten. Kontrollera URL och försök igen.");
+                }
             }
+            
 
 
         }
@@ -104,7 +114,6 @@ namespace WinFormsApp1
         {
             if (lboxAvsnitt.SelectedIndex != -1)
             {
-
                 Avsnitt selectedAvsnitt = (Avsnitt)lboxAvsnitt.SelectedItem;
                 rtbBeskrivning.Text = selectedAvsnitt.Beskrivning;
             }
@@ -119,7 +128,7 @@ namespace WinFormsApp1
 
         private void LoadCategoryToListBox()
         {
-            List<Kategori> kategorier = kategoriSerializer.Deserialize();
+            List<Kategori> kategorier = kategoriController.getAllCategory();
             lboxKategori.Items.Clear();
             if (kategorier != null)
             {
@@ -130,8 +139,24 @@ namespace WinFormsApp1
             }
 
         }
+
+        private void LoadCategoriesToComboBox()
+        {
+            List<Kategori> kategorier = kategoriController.getAllCategory();
+
+            cboxKategori.Items.Clear();
+
+            cboxKategori.Items.Add("Välj en kategori");
+
+            cboxKategori.DisplayMember = "namn"; 
+
+            foreach (var kategori in kategorier)
+            {
+                cboxKategori.Items.Add(kategori);
+            }
+
+            cboxKategori.SelectedIndex = 0;
+        }
     }
 }
 
-
-//RSS.HämtaPodcastFrånRss(kategori, namn, URL);

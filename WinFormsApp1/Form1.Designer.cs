@@ -170,6 +170,7 @@
             // 
             // cboxKategori
             // 
+            cboxKategori.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxKategori.FormattingEnabled = true;
             cboxKategori.Location = new Point(71, 619);
             cboxKategori.Margin = new Padding(2);
