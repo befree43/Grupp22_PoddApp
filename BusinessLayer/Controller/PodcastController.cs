@@ -39,7 +39,23 @@ namespace BusinessLayer.Controller
             return false;
             }
     }
-}
+
+        public async Task<List<Avsnitt>> LäggTillAvsnittFrånRssAsync(string podcastUrl)
+        {
+            try
+            {
+                List<Avsnitt> avsnittList = await RSS.HämtaAvsnittFrånRssAsync(podcastUrl);
+
+                return avsnittList;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fel vid hämtning av podcast från RSS: {ex.Message}");
+                return null;
+            }
+        }
+
+    }
 }
 
 
