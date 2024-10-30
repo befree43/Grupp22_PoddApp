@@ -58,7 +58,17 @@ namespace BusinessLayer.Controller
         public List<Podcast> FilterPodByCategory(string categoryName)
         {
             var podcastRepo = (PodRepository)podcastRepository;
-            List<Podcast> filteredPodcasts = podcastRepo.FilterPodcastsByCategory(categoryName);
+
+            List<Podcast> filteredPodcasts = new List<Podcast>();
+
+            if (categoryName == "Alla")
+            {
+                filteredPodcasts = podcastRepo.GetAll();
+            }
+            else
+            {
+                filteredPodcasts = podcastRepo.FilterPodcastsByCategory(categoryName);
+            }
 
             return filteredPodcasts;
         }

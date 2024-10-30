@@ -224,7 +224,7 @@
             // 
             cboxSorteraPodcast.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxSorteraPodcast.FormattingEnabled = true;
-            cboxSorteraPodcast.Location = new Point(71, 990);
+            cboxSorteraPodcast.Location = new Point(639, 58);
             cboxSorteraPodcast.Margin = new Padding(2);
             cboxSorteraPodcast.Name = "cboxSorteraPodcast";
             cboxSorteraPodcast.Size = new Size(331, 40);
@@ -234,7 +234,7 @@
             // lblValjKategori
             // 
             lblValjKategori.AutoSize = true;
-            lblValjKategori.Location = new Point(71, 958);
+            lblValjKategori.Location = new Point(639, 26);
             lblValjKategori.Margin = new Padding(2, 0, 2, 0);
             lblValjKategori.Name = "lblValjKategori";
             lblValjKategori.Size = new Size(145, 32);

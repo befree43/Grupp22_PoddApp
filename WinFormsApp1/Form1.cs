@@ -150,11 +150,13 @@ namespace WinFormsApp1
             cboxKategori.Items.Clear();
             cboxSorteraPodcast.Items.Clear();
 
-            cboxKategori.Items.Add("Välj en kategori");
-            cboxSorteraPodcast.Items.Add("Välj en kategori");
-
             cboxKategori.DisplayMember = "namn";
             cboxSorteraPodcast.DisplayMember = "namn";
+
+            cboxKategori.Items.Add("Välj en kategori");
+
+            Kategori defaultKategori = new Kategori("Alla");
+            cboxSorteraPodcast.Items.Add(defaultKategori);
 
             foreach (var kategori in kategorier)
             {
@@ -213,7 +215,15 @@ namespace WinFormsApp1
             if (selectedItem is Kategori selectedKategori)
             {
                 string categoryName = selectedKategori.namn;
-
+                lvPrenumerationer.Items.Clear(); 
+                List<Podcast> podcasts = podcastController.FilterPodByCategory(categoryName);
+                foreach (var podcast in podcasts)
+                {
+                    ListViewItem item = new ListViewItem(podcast.Namn);
+                    item.SubItems.Add(podcast.Url);
+                    item.SubItems.Add(podcast.Kategori.namn);
+                    lvPrenumerationer.Items.Add(item);
+                }
             }
            
         }
