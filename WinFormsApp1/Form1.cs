@@ -76,6 +76,11 @@ namespace WinFormsApp1
 
                 lvPrenumerationer.Items.Add(item);
             }
+            if (cboxSorteraPodcast.Items.Count > 0) {
+
+                cboxSorteraPodcast.SelectedIndex = 0;
+            }
+            
 
         }
 
