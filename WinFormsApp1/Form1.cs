@@ -199,10 +199,23 @@ namespace WinFormsApp1
 
         private void tbNyKategori_TextChanged(object sender, EventArgs e)
         {
-            if (lboxKategori.SelectedIndex != -1) {
+            if (lboxKategori.SelectedIndex != -1)
+            {
                 btnÄndraKategori.Visible = true;
             }
-               
+
+        }
+
+        private void cboxSorteraPodcast_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = cboxSorteraPodcast.SelectedItem;
+
+            if (selectedItem is Kategori selectedKategori)
+            {
+                string categoryName = selectedKategori.namn;
+
+            }
+           
         }
     }
 }

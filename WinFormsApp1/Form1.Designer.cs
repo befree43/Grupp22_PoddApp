@@ -229,6 +229,7 @@
             cboxSorteraPodcast.Name = "cboxSorteraPodcast";
             cboxSorteraPodcast.Size = new Size(331, 40);
             cboxSorteraPodcast.TabIndex = 21;
+            cboxSorteraPodcast.SelectedIndexChanged += cboxSorteraPodcast_SelectedIndexChanged;
             // 
             // lblValjKategori
             // 
