@@ -25,7 +25,7 @@ namespace WinFormsApp1
         private async void btnLaggTillPodcast_Click(object sender, EventArgs e)
         {
             string namn = tbTitel.Text;
-            Kategori kategori = new Kategori(cboxKategori.Text, "description");
+            Kategori kategori = new Kategori(cboxKategori.Text);
             string URL = tbURL.Text;
 
             bool lyckades = await podcastController.LäggTillPodcastFrånRssAsync(kategori, namn, URL);

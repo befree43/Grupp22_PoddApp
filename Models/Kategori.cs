@@ -10,12 +10,10 @@ namespace Models
     public class Kategori
     {
         public string? namn { get; set; }
-        public string? beskrivning { get; set; }
 
-        public Kategori(string? kategoriNamn, string? kategoriBeskrivning)
+        public Kategori(string? kategoriNamn)
         {
             namn = kategoriNamn;
-            beskrivning = kategoriBeskrivning;
         }
         public Kategori() { }
     }
