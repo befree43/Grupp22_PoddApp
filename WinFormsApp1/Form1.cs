@@ -75,18 +75,29 @@ namespace WinFormsApp1
             {
                 List<Avsnitt> avsnittList = await podcastController.LäggTillAvsnittFrånRssAsync(podcastUrl);
 
-                lboxAvsnitt.Items.Clear(); 
+                lboxAvsnitt.Items.Clear();
                 if (avsnittList != null)
                 {
+                    lboxAvsnitt.DisplayMember = "Titel";
                     foreach (var avsnitt in avsnittList)
                     {
-                        lboxAvsnitt.Items.Add(avsnitt.Titel);
+                        lboxAvsnitt.Items.Add(avsnitt);
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
+        private void lboxAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lboxAvsnitt.SelectedIndex != -1)
+            {
+
+                Avsnitt selectedAvsnitt = (Avsnitt)lboxAvsnitt.SelectedItem;
+                rtbBeskrivning.Text = selectedAvsnitt.Beskrivning;
             }
         }
     }

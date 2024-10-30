@@ -63,6 +63,7 @@
             lboxAvsnitt.Name = "lboxAvsnitt";
             lboxAvsnitt.Size = new Size(699, 964);
             lboxAvsnitt.TabIndex = 1;
+            lboxAvsnitt.SelectedIndexChanged += lboxAvsnitt_SelectedIndexChanged;
             // 
             // rtbBeskrivning
             // 
@@ -255,7 +256,7 @@
             // 
             lblRedigeraKategori.AutoSize = true;
             lblRedigeraKategori.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRedigeraKategori.Location = new Point(487, 889);
+            lblRedigeraKategori.Location = new Point(459, 889);
             lblRedigeraKategori.Margin = new Padding(2, 0, 2, 0);
             lblRedigeraKategori.Name = "lblRedigeraKategori";
             lblRedigeraKategori.Size = new Size(271, 45);
@@ -295,7 +296,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1857, 975);
+            ClientSize = new Size(1857, 1462);
             Controls.Add(lvPrenumerationer);
             Controls.Add(lblRedigeraKategori);
             Controls.Add(lboxPodcastInomKategori);
