@@ -14,6 +14,12 @@ namespace DataAccessLayer.Repository
             kategoriRepository = new KategoriRepository();
         }
 
+        public void LäggTillKategori(string namn, string beskrivning)
+        {
+            Kategori nyKategori = new Kategori(namn, beskrivning);
+            kategoriRepository.Insert(nyKategori);  
+        }
+
     }
 
 }
