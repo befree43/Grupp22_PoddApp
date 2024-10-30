@@ -27,7 +27,7 @@ namespace DataAccessLayer.Repository
 
         public Kategori GetByName(string namn)
         {
-            return ListAvKategorier.FirstOrDefault(k => k.KategoriNamn == namn);
+            return ListAvKategorier.FirstOrDefault(k => k.namn == namn);
         }
 
         public void Insert(Kategori theObject)
@@ -61,7 +61,7 @@ namespace DataAccessLayer.Repository
 
         public Kategori GetByUrl(string url) // Implementera metoden
         {
-            return ListAvKategorier.FirstOrDefault(k => k.KategoriUrl == url);
+            return ListAvKategorier.FirstOrDefault(k => k.url == url);
         }
     }
 }

@@ -27,12 +27,6 @@ namespace DataAccessLayer
 
                     Podcast enPodcast = new Podcast(podcastFlode.Title.Text, kategori, namn, url);
 
-                    foreach (var item in podcastFlode.Items)
-                    {
-                        var avsnitt = new Avsnitt(item.Title.Text, item.Summary.Text, item.Id);
-                        enPodcast.Avsnitt.Add(avsnitt);
-                    }
-
                     return enPodcast;
                 }
             }
