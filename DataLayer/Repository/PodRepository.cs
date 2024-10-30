@@ -58,6 +58,11 @@ namespace DataAccessLayer.Repository
         {
             PodcastSerializer.Serialize(ListAvPodcastar);
         }
+
+        public Podcast GetByName(string namn)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     //Serializer<Podcast> PodcastSerializer;

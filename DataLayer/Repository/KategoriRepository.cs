@@ -59,9 +59,12 @@ namespace DataAccessLayer.Repository
             KategoriSerializer.Serialize(ListAvKategorier);
         }
 
-        public Kategori GetByUrl(string url); // Implementera metoden { // Här kan du implementera hur du vill hämta en kategori baserat på URL:en
-        return ListAvKategorier.FirstOrDefault(k => k.KategoriUrl == url); }
+        public Kategori GetByUrl(string url) // Implementera metoden
+        {
+            return ListAvKategorier.FirstOrDefault(k => k.KategoriUrl == url);
+        }
     }
+}
 
    
 

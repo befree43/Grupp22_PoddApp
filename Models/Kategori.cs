@@ -9,7 +9,7 @@ namespace Models
     [Serializable]
     public class Kategori
     {
-        public string? KategoriNamn { get; set }
+        public string? KategoriNamn { get; set; }
         public string? KategoriUrl { get; set; }
         
         public Kategori(string? kategoriNamn, string? kategoriUrl)
