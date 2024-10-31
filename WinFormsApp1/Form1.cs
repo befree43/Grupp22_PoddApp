@@ -263,30 +263,53 @@ namespace WinFormsApp1
 
         private void btnSparaPod_Click(object sender, EventArgs e)
         {
-            string searchTitle = lblPodTitle.Text; // Title to search for
-            int foundIndex = -1;
-            ListViewItem foundItem = null;
+            int foundIndex = findPodIndex();
 
-            // Loop through ListView items to find by title
-            for (int i = 0; i < lvPrenumerationer.Items.Count; i++)
+            if (foundIndex != -1)
             {
-                if (lvPrenumerationer.Items[i].SubItems[1].Text == searchTitle) 
-                {
-                    foundIndex = i;
-                    foundItem = lvPrenumerationer.Items[i];
-                    break;
-                }
-            }
-
-            if (foundIndex != -1 && foundItem != null)
-            {
-                string url = foundItem.SubItems[3].Text; 
+                ListViewItem foundItem = lvPrenumerationer.Items[foundIndex];
+                string url = foundItem.SubItems[3].Text;
                 Podcast updatedPodcast = new Podcast(lblPodTitle.Text, (Kategori)cbPodKategori.SelectedItem, tbPodNamn.Text, url);
 
                 podcastController.UpdatePodcast(foundIndex, updatedPodcast);
 
                 LoadPodcastsToListView();
             }
+        }
+
+        private void btnRaderaPod_Click(object sender, EventArgs e)
+        {
+            int foundIndex = findPodIndex();
+            if (foundIndex != -1) { 
+                podcastController.deletPodcast(foundIndex);
+                LoadPodcastsToListView();
+                lblPodTitle.Text = "Podcast";
+                tbPodNamn.Text = "";
+                cbPodKategori.SelectedIndex = -1;
+                lboxAvsnitt.Items.Clear();
+                rtbBeskrivning.Text = "";
+
+                MessageBox.Show("Podcast borttagen");
+            }
+
+
+        }
+
+        private int findPodIndex() {
+            string searchTitle = lblPodTitle.Text; 
+            int foundIndex = -1;
+
+            for (int i = 0; i < lvPrenumerationer.Items.Count; i++)
+            {
+                if (lvPrenumerationer.Items[i].SubItems[1].Text == searchTitle)
+                {
+                    foundIndex = i;
+                    
+                    break;
+                }
+            }
+
+            return foundIndex;
         }
     }
 }

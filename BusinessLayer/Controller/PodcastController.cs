@@ -78,6 +78,11 @@ namespace BusinessLayer.Controller
            podcastRepository.Update(index, podcast);    
         }
 
+        public void deletPodcast(int index)
+        {
+            podcastRepository.Delete(index);
+        }
+
     }
 }
 

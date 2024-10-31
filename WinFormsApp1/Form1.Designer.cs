@@ -356,6 +356,7 @@
             btnRaderaPod.TabIndex = 36;
             btnRaderaPod.Text = "Radera";
             btnRaderaPod.UseVisualStyleBackColor = true;
+            btnRaderaPod.Click += btnRaderaPod_Click;
             // 
             // Form1
             // 
