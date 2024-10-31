@@ -279,18 +279,28 @@ namespace WinFormsApp1
 
         private void btnRaderaPod_Click(object sender, EventArgs e)
         {
-            int foundIndex = findPodIndex();
-            if (foundIndex != -1) { 
-                podcastController.deletPodcast(foundIndex);
-                LoadPodcastsToListView();
-                lblPodTitle.Text = "Podcast";
-                tbPodNamn.Text = "";
-                cbPodKategori.SelectedIndex = -1;
-                lboxAvsnitt.Items.Clear();
-                rtbBeskrivning.Text = "";
+            DialogResult dialogResult = MessageBox.Show("Vill du radera podcasten?", "", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int foundIndex = findPodIndex();
+                if (foundIndex != -1)
+                {
+                    podcastController.deletPodcast(foundIndex);
+                    LoadPodcastsToListView();
+                    lblPodTitle.Text = "Podcast";
+                    tbPodNamn.Text = "";
+                    cbPodKategori.SelectedIndex = -1;
+                    lboxAvsnitt.Items.Clear();
+                    rtbBeskrivning.Text = "";
 
-                MessageBox.Show("Podcast borttagen");
+                    MessageBox.Show("Podcast borttagen");
+                }
             }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+            
 
 
         }
