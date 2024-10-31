@@ -296,12 +296,6 @@ namespace WinFormsApp1
                     MessageBox.Show("Podcast borttagen");
                 }
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                //do something else
-            }
-            
-
 
         }
 
