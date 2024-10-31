@@ -89,6 +89,9 @@ namespace WinFormsApp1
 
                 LoadAvsnittToListBox(url);
 
+                Kategori kategori = new Kategori(selectedItem.SubItems[2].Text);
+                LoadPodcastInfo(selectedItem.SubItems[0].Text,selectedItem.SubItems[1].Text, kategori);
+
             }
         }
 
@@ -112,6 +115,28 @@ namespace WinFormsApp1
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+        }
+
+        private async Task LoadPodcastInfo(string podNamn,string podTitel, Kategori podKategori)
+        {
+            int podIndex = -1;
+            for (int i = 0; i < cbPodKategori.Items.Count; i++)
+            {
+                if (((Kategori)cbPodKategori.Items[i]).namn == podKategori.namn)
+                {
+                    podIndex = i;
+                    break;
+                }
+            }
+
+            if (podIndex >= 0)
+            {
+                cbPodKategori.SelectedIndex = podIndex;
+            }
+
+            lblPodTitle.Text = podTitel;
+            tbPodNamn.Text = podNamn;
+
         }
 
         private void lboxAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,9 +176,11 @@ namespace WinFormsApp1
 
             cboxKategori.Items.Clear();
             cboxSorteraPodcast.Items.Clear();
+            cbPodKategori.Items.Clear();
 
             cboxKategori.DisplayMember = "namn";
             cboxSorteraPodcast.DisplayMember = "namn";
+            cbPodKategori.DisplayMember = "namn";
 
             cboxKategori.Items.Add("Välj en kategori");
 
@@ -164,10 +191,12 @@ namespace WinFormsApp1
             {
                 cboxKategori.Items.Add(kategori);
                 cboxSorteraPodcast.Items.Add(kategori);
+                cbPodKategori.Items.Add(kategori);
             }
 
             cboxKategori.SelectedIndex = 0;
             cboxSorteraPodcast.SelectedIndex = 0;
+            cbPodKategori.SelectedIndex = -1;
         }
 
         private void btnTaBortKategori_Click(object sender, EventArgs e)
