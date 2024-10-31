@@ -9,12 +9,10 @@ namespace DataAccessLayer.Repository
     public interface IRepository<T>
     {
         List<T> GetAll();
-        T GetByName(string namn);
         void Insert(T theObject);
         void Update(int index, T theObject);
         void Delete(int index);
         void SaveChanges();
-        T GetByUrl(string url);
     }
 
 

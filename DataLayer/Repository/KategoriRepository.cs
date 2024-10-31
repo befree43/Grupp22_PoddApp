@@ -16,7 +16,7 @@ namespace DataAccessLayer.Repository
 
         public KategoriRepository()
         {
-            KategoriSerializer = new Serializer<Kategori>("kategorier");
+            KategoriSerializer = new Serializer<Kategori>("categories");
             ListAvKategorier = KategoriSerializer.Deserialize();
         }
 
@@ -27,7 +27,7 @@ namespace DataAccessLayer.Repository
 
         public Kategori GetByName(string namn)
         {
-            return ListAvKategorier.FirstOrDefault(k => k.KategoriNamn == namn);
+            return ListAvKategorier.FirstOrDefault(k => k.namn == namn);
         }
 
         public void Insert(Kategori theObject)
@@ -59,10 +59,7 @@ namespace DataAccessLayer.Repository
             KategoriSerializer.Serialize(ListAvKategorier);
         }
 
-        public Kategori GetByUrl(string url) // Implementera metoden
-        {
-            return ListAvKategorier.FirstOrDefault(k => k.KategoriUrl == url);
-        }
+        
     }
 }
 

@@ -14,7 +14,7 @@ namespace BusinessLayer.Controller
         {
             podcastRepository = new PodRepository();
         }
-        public async Task<bool> LäggTillPodcastFrånRssAsync(string kategori, string namn, string url)
+        public async Task<bool> LäggTillPodcastFrånRssAsync(Kategori kategori, string namn, string url)
         {
             try
             {
@@ -39,14 +39,41 @@ namespace BusinessLayer.Controller
             return false;
             }
     }
+
+        public async Task<List<Avsnitt>> LäggTillAvsnittFrånRssAsync(string podcastUrl)
+        {
+            try
+            {
+                List<Avsnitt> avsnittList = await RSS.HämtaAvsnittFrånRssAsync(podcastUrl);
+
+                return avsnittList;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fel vid hämtning av podcast från RSS: {ex.Message}");
+                return null;
+            }
+        }
+
+        public List<Podcast> FilterPodByCategory(string categoryName)
+        {
+            var podcastRepo = (PodRepository)podcastRepository;
+
+            List<Podcast> filteredPodcasts = new List<Podcast>();
+
+            if (categoryName == "Alla")
+            {
+                filteredPodcasts = podcastRepo.GetAll();
+            }
+            else
+            {
+                filteredPodcasts = podcastRepo.FilterPodcastsByCategory(categoryName);
+            }
+
+            return filteredPodcasts;
+        }
+
+    }
 }
-}
 
 
-
-
-
-
-
-
-//test uppdatering11

@@ -12,7 +12,7 @@ namespace DataAccessLayer
 {
     public class RSS
     {
-        public static async Task<Podcast> HämtaPodcastFrånRssAsync(string kategori, string namn, string url)
+        public static async Task<Podcast> HämtaPodcastFrånRssAsync(Kategori kategori, string namn, string url)
         {
             // Hämta användarens dokumentmapp
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -27,16 +27,37 @@ namespace DataAccessLayer
 
                     Podcast enPodcast = new Podcast(podcastFlode.Title.Text, kategori, namn, url);
 
-                    foreach (var item in podcastFlode.Items)
-                    {
-                        var avsnitt = new Avsnitt(item.Title.Text, item.Summary.Text, item.Id);
-                        enPodcast.Avsnitt.Add(avsnitt);
-                    }
-
                     return enPodcast;
                 }
             }
             
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fel vid hämtning av RSS-flödet: {ex.Message}");
+                return null;
+            }
+        }
+
+        public static async Task<List<Avsnitt>> HämtaAvsnittFrånRssAsync(string url)
+        {
+
+            try
+            {
+                List<Avsnitt> allaAvsnitt = new List<Avsnitt>();
+                using (XmlReader minXMLlasare = XmlReader.Create(url))
+                {
+                    SyndicationFeed podcastFlode = await Task.Run(() => SyndicationFeed.Load(minXMLlasare));
+                    if (podcastFlode == null) throw new Exception("RSS-flödet kunde inte läsas.");
+
+                    foreach (SyndicationItem item in podcastFlode.Items) {
+                        Avsnitt avsnitt = new Avsnitt(item.Title.Text, item.Summary.Text, item.Id);
+                        allaAvsnitt.Add(avsnitt);
+                    }
+
+                    return allaAvsnitt;
+                }
+            }
+
             catch (Exception ex)
             {
                 Console.WriteLine($"Fel vid hämtning av RSS-flödet: {ex.Message}");
