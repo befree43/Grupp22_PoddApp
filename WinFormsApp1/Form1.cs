@@ -6,6 +6,7 @@ using BusinessLayer.Controller;
 using DataAccessLayer;
 using DataAccessLayer.Repository;
 using Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsApp1
 {
@@ -90,7 +91,7 @@ namespace WinFormsApp1
                 LoadAvsnittToListBox(url);
 
                 Kategori kategori = new Kategori(selectedItem.SubItems[2].Text);
-                LoadPodcastInfo(selectedItem.SubItems[0].Text,selectedItem.SubItems[1].Text, kategori);
+                LoadPodcastInfo(selectedItem.SubItems[0].Text, selectedItem.SubItems[1].Text, kategori);
 
             }
         }
@@ -117,7 +118,7 @@ namespace WinFormsApp1
             }
         }
 
-        private async Task LoadPodcastInfo(string podNamn,string podTitel, Kategori podKategori)
+        private async Task LoadPodcastInfo(string podNamn, string podTitel, Kategori podKategori)
         {
             int podIndex = -1;
             for (int i = 0; i < cbPodKategori.Items.Count; i++)
@@ -246,7 +247,7 @@ namespace WinFormsApp1
             if (selectedItem is Kategori selectedKategori)
             {
                 string categoryName = selectedKategori.namn;
-                lvPrenumerationer.Items.Clear(); 
+                lvPrenumerationer.Items.Clear();
                 List<Podcast> podcasts = podcastController.FilterPodByCategory(categoryName);
                 foreach (var podcast in podcasts)
                 {
@@ -257,7 +258,35 @@ namespace WinFormsApp1
                     lvPrenumerationer.Items.Add(item);
                 }
             }
-           
+
+        }
+
+        private void btnSparaPod_Click(object sender, EventArgs e)
+        {
+            string searchTitle = lblPodTitle.Text; // Title to search for
+            int foundIndex = -1;
+            ListViewItem foundItem = null;
+
+            // Loop through ListView items to find by title
+            for (int i = 0; i < lvPrenumerationer.Items.Count; i++)
+            {
+                if (lvPrenumerationer.Items[i].SubItems[1].Text == searchTitle) 
+                {
+                    foundIndex = i;
+                    foundItem = lvPrenumerationer.Items[i];
+                    break;
+                }
+            }
+
+            if (foundIndex != -1 && foundItem != null)
+            {
+                string url = foundItem.SubItems[3].Text; 
+                Podcast updatedPodcast = new Podcast(lblPodTitle.Text, (Kategori)cbPodKategori.SelectedItem, tbPodNamn.Text, url);
+
+                podcastController.UpdatePodcast(foundIndex, updatedPodcast);
+
+                LoadPodcastsToListView();
+            }
         }
     }
 }

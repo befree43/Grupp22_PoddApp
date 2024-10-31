@@ -321,6 +321,7 @@
             btnSparaPod.TabIndex = 32;
             btnSparaPod.Text = "Spara";
             btnSparaPod.UseVisualStyleBackColor = true;
+            btnSparaPod.Click += btnSparaPod_Click;
             // 
             // lblPodTitle
             // 
