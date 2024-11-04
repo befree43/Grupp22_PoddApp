@@ -73,6 +73,16 @@ namespace BusinessLayer.Controller
             return filteredPodcasts;
         }
 
+        public void UpdatePodcast(int index, Podcast podcast)
+        {
+           podcastRepository.Update(index, podcast);    
+        }
+
+        public void deletPodcast(int index)
+        {
+            podcastRepository.Delete(index);
+        }
+
     }
 }
 
