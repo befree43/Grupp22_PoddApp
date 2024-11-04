@@ -84,6 +84,8 @@ namespace BusinessLayer.Controller
         {
             return ((PodRepository)podcastRepository).HamtaPodcastMedNamn(namn);
 
+        }
+
         public void UpdatePodcast(int index, Podcast podcast)
         {
            podcastRepository.Update(index, podcast);    
