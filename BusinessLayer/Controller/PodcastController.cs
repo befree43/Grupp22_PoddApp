@@ -26,19 +26,20 @@ namespace BusinessLayer.Controller
                 {
                     podcastRepository.Insert(podcast);  // Spara podcasten i databasen
                     return true;
+                }
+                else
+                {
+                    Console.WriteLine("Podcast kunde inte hämtas från angiven URL");
+                    return false;
+                }
             }
-            else
+
+            catch (Exception ex)
             {
-                Console.WriteLine("Podcast kunde inte hämtas från angiven URL");
+                Console.WriteLine($"Fel vid hämtning av podcast från RSS: {ex.Message}");
                 return false;
             }
         }
-        catch (Exception ex)
-            {
-            Console.WriteLine($"Fel vid hämtning av podcast från RSS: {ex.Message}");
-            return false;
-            }
-    }
 
         public async Task<List<Avsnitt>> LäggTillAvsnittFrånRssAsync(string podcastUrl)
         {
@@ -74,7 +75,7 @@ namespace BusinessLayer.Controller
         }
 
 
-        //Ny kod
+       
         public Podcast HämtaPodcastViaUrl(string url)
         {
             return ((PodRepository)podcastRepository).GetByUrl(url);
@@ -88,7 +89,7 @@ namespace BusinessLayer.Controller
 
         public void UpdatePodcast(int index, Podcast podcast)
         {
-           podcastRepository.Update(index, podcast);    
+            podcastRepository.Update(index, podcast);
         }
 
         public void deletPodcast(int index)
