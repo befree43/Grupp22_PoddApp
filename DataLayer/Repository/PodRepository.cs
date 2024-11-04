@@ -68,6 +68,17 @@ namespace DataAccessLayer.Repository
             return filteredPodcasts;
         }
 
+        //Ny Kod
+
+        public Podcast HamtaPodcastMedNamn(string namn)
+        {
+            return ListAvPodcastar.FirstOrDefault(p => p.Namn.Equals(namn, StringComparison.OrdinalIgnoreCase));
+        }
+
+        //public bool FinnsPodcastMedTitel(string titel)
+        //{
+        //    return ListAvPodcastar.Any(p => p.Namn.Equals(titel, StringComparison.OrdinalIgnoreCase));
+        //}
 
     }
 

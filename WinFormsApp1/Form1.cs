@@ -1,4 +1,5 @@
 using System;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
@@ -36,16 +37,33 @@ namespace WinFormsApp1
         {
             string namn = tbTitel.Text;
             Kategori kategori = new Kategori(cboxKategori.Text);
+            string URL = tbURL.Text;
+
+            if (!Validator.FaltValidator(namn))
+            {
+                MessageBox.Show("Namnet får inte vara tomt!");
+                return; // Avbryt om titeln är tom
+            }
+
+            if(!Validator.ArUniktNamn(namn, podcastController)) 
+            {
+                MessageBox.Show("Vänligen välj ett unikt namn!");
+                return; // Avbryt om titeln är tom
+            }
 
             if (cboxKategori.Text == "Välj en kategori")
             {
                 MessageBox.Show("Välj en kategori!");
 
             }
+            if (!Validator.ArUnikUrl(URL, podcastController))
+            {
+                MessageBox.Show("Denna URL är redan sparad. Vänligen ange en annan URL.");
+                return; // Avbryt om URL:en redan är sparad
+            }
+
             else
             {
-                string URL = tbURL.Text;
-
                 bool lyckades = await podcastController.LäggTillPodcastFrånRssAsync(kategori, namn, URL);
 
                 if (lyckades)
@@ -58,6 +76,11 @@ namespace WinFormsApp1
                     MessageBox.Show("Kunde inte lägga till podcasten. Kontrollera URL och försök igen.");
                 }
             }
+
+
+
+
+
 
 
 
@@ -126,6 +149,17 @@ namespace WinFormsApp1
         private void btnLäggTillKategori_Click(object sender, EventArgs e)
         {
             string kategoriNamn = tbNyKategori.Text;
+            if (!Validator.FaltValidator(kategoriNamn))
+            {
+                MessageBox.Show("Vänligen skriv in ett kategorinamn!");
+                return;
+            }
+
+            if (!Validator.ArUnikKategori(kategoriNamn, kategoriController))
+            {
+                MessageBox.Show("Kategorin finns redan!");
+                return;
+            }
             kategoriController.LäggTillKategori(kategoriNamn);
             LoadCategoryToListBox();
             LoadCategoriesToComboBoxes();

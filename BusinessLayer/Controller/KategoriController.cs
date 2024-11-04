@@ -34,6 +34,12 @@ namespace DataAccessLayer.Repository
             kategoriRepository.Update(index,kategori);
         }
 
+        //Ny kod
+        public Kategori KollaKategoriNamn(string namn)
+        {
+            return ((KategoriRepository)kategoriRepository).GetByName(namn);
+        }
+
     }
 
 }
