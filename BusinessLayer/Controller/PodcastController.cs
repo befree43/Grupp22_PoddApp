@@ -73,6 +73,17 @@ namespace BusinessLayer.Controller
             return filteredPodcasts;
         }
 
+
+        //Ny kod
+        public Podcast HämtaPodcastViaUrl(string url)
+        {
+            return ((PodRepository)podcastRepository).GetByUrl(url);
+        }
+
+        public Podcast KollaPodcastNamn(string namn)
+        {
+            return ((PodRepository)podcastRepository).HamtaPodcastMedNamn(namn);
+
         public void UpdatePodcast(int index, Podcast podcast)
         {
            podcastRepository.Update(index, podcast);    
@@ -81,6 +92,7 @@ namespace BusinessLayer.Controller
         public void deletPodcast(int index)
         {
             podcastRepository.Delete(index);
+
         }
 
     }
