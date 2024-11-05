@@ -74,6 +74,18 @@ namespace BusinessLayer.Controller
             return filteredPodcasts;
         }
 
+        public void updatePodcastsCategory(string oldCategoryName, Kategori newCategory) {
+            List<Podcast> allPodcasts = podcastRepository.GetAll();
+
+            foreach (Podcast podcast in allPodcasts) {
+                if (podcast.Kategori.namn == oldCategoryName) {
+                    podcast.Kategori = newCategory;
+                }
+            }
+
+            podcastRepository.SaveChanges();
+        }
+
 
        
         public Podcast HämtaPodcastViaUrl(string url)
