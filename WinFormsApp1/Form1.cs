@@ -70,6 +70,9 @@ namespace WinFormsApp1
                 if (lyckades)
                 {
                     MessageBox.Show("Podcasten har lagts till!");
+                    tbTitel.Clear();
+                    cboxKategori.SelectedIndex = 0;
+                    tbURL.Clear();
                     LoadPodcastsToListView();
                 }
                 else
@@ -260,8 +263,11 @@ namespace WinFormsApp1
             {
                 Kategori newCategory = new Kategori(tbNyKategori.Text);
                 kategoriController.updateKategory(lboxKategori.SelectedIndex, newCategory);
+                podcastController.updatePodcastsCategory(lboxKategori.SelectedItem.ToString(), newCategory);
                 LoadCategoriesToComboBoxes();
                 LoadCategoryToListBox();
+                LoadPodcastsToListView();
+                tbNyKategori.Clear();
             }
         }
 

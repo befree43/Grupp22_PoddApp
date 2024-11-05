@@ -25,6 +25,15 @@ namespace DataAccessLayer.Repository
             return ListAvPodcastar;
         }
 
+        public List<Podcast> GetAll(string categoryName)
+        {
+            List<Podcast> podcasts = GetAll();
+
+            var filteredPodcasts = podcasts.Where(p => p.Kategori.namn == categoryName).ToList();
+
+            return filteredPodcasts;
+        }
+
         public Podcast GetByUrl(string url)
         {
             return ListAvPodcastar.FirstOrDefault(p => p.Url == url);
@@ -59,14 +68,7 @@ namespace DataAccessLayer.Repository
             PodcastSerializer.Serialize(ListAvPodcastar);
         }
 
-        public List<Podcast> FilterPodcastsByCategory(string categoryName)
-        {
-            List<Podcast> podcasts = GetAll();
-
-            var filteredPodcasts = podcasts.Where(p => p.Kategori.namn == categoryName).ToList();
-
-            return filteredPodcasts;
-        }
+        
 
         //Ny Kod
 

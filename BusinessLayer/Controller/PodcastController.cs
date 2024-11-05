@@ -68,10 +68,22 @@ namespace BusinessLayer.Controller
             }
             else
             {
-                filteredPodcasts = podcastRepo.FilterPodcastsByCategory(categoryName);
+                filteredPodcasts = podcastRepo.GetAll(categoryName);
             }
 
             return filteredPodcasts;
+        }
+
+        public void updatePodcastsCategory(string oldCategoryName, Kategori newCategory) {
+            List<Podcast> allPodcasts = podcastRepository.GetAll();
+
+            foreach (Podcast podcast in allPodcasts) {
+                if (podcast.Kategori.namn == oldCategoryName) {
+                    podcast.Kategori = newCategory;
+                }
+            }
+
+            podcastRepository.SaveChanges();
         }
 
 
