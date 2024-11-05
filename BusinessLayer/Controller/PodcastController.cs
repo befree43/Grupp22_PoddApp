@@ -68,7 +68,7 @@ namespace BusinessLayer.Controller
             }
             else
             {
-                filteredPodcasts = podcastRepo.FilterPodcastsByCategory(categoryName);
+                filteredPodcasts = podcastRepo.GetAll(categoryName);
             }
 
             return filteredPodcasts;
