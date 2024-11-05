@@ -10,14 +10,12 @@
         public List<Avsnitt> Avsnitt { get; set; } = new List<Avsnitt>();
 
 
-
         public Podcast (string? titel, Kategori? kategori, string? namn, string? url)
         {
             Titel = titel;
             Namn = namn;
             Kategori = kategori;
             Url = url;
-
         }
 
         public Podcast() { }

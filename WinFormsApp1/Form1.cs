@@ -15,7 +15,6 @@ namespace WinFormsApp1
     {
         private PodcastController podcastController;
         private Serializer<Podcast> podcastSerializer;
-
         private KategoriController kategoriController;
 
         public Form1()
@@ -23,7 +22,6 @@ namespace WinFormsApp1
             InitializeComponent();
             podcastController = new PodcastController();
             podcastSerializer = new Serializer<Podcast>("podcasts");
-
             kategoriController = new KategoriController();
 
             LoadPodcastsToListView();
@@ -227,28 +225,24 @@ namespace WinFormsApp1
 
         private void btnTaBortKategori_Click(object sender, EventArgs e)
         {
-
             List<Podcast> podcastsWithCategory = podcastController.FilterPodByCategory(lboxKategori.SelectedItem.ToString());
 
             if (podcastsWithCategory.Count > 0)
             {
                 MessageBox.Show("Du kan inte radera en kategori som används");
-
             }
+            
             else
             {
                 DialogResult dialogResult = MessageBox.Show("Vill du radera kategorin?", "", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                   
                     kategoriController.deleteCategory(lboxKategori.SelectedIndex);
                     LoadCategoriesToComboBoxes();
                     LoadCategoryToListBox();
                     tbNyKategori.Clear();
-                      
                 }
             }
-               
         }
 
         private void lboxKategori_SelectedIndexChanged(object sender, EventArgs e)
@@ -280,7 +274,6 @@ namespace WinFormsApp1
             {
                 btnÄndraKategori.Visible = true;
             }
-
         }
 
         private void cboxSorteraPodcast_SelectedIndexChanged(object sender, EventArgs e)
@@ -301,7 +294,6 @@ namespace WinFormsApp1
                     lvPrenumerationer.Items.Add(item);
                 }
             }
-
         }
 
         private void btnSparaPod_Click(object sender, EventArgs e)
@@ -339,7 +331,6 @@ namespace WinFormsApp1
                     MessageBox.Show("Podcast borttagen");
                 }
             }
-
         }
 
         private int findPodIndex() {

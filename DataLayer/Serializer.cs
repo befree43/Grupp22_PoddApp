@@ -36,7 +36,6 @@ namespace DataAccessLayer
         {
             if (!File.Exists(fileName) || new FileInfo(fileName).Length == 0)
             {
-                // Om filen inte existerar eller är tom, returnera en tom lista
                 return new List<T>();
             }
 
@@ -53,7 +52,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 Console.WriteLine($"Fel vid deserialisering: {ex.Message}");
-                return new List<T>(); // Returnera en tom lista vid fel
+                return new List<T>(); 
             }
         }
     }

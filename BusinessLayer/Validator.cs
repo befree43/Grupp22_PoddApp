@@ -15,7 +15,6 @@ namespace BusinessLayer
             return !string.IsNullOrWhiteSpace(input);
         }
 
-        //Ny kod
         public static bool ArUnikUrl(string url, PodcastController podcastController)
         {
             var befintligPodcast = podcastController.HämtaPodcastViaUrl(url);

@@ -19,12 +19,11 @@ namespace BusinessLayer.Controller
             try
             {
 
-                // Hämta podcast och dess avsnitt från RSS
                 Podcast podcast = await RSS.HämtaPodcastFrånRssAsync(kategori, namn, url);
 
                 if (podcast != null)
                 {
-                    podcastRepository.Insert(podcast);  // Spara podcasten i databasen
+                    podcastRepository.Insert(podcast);  
                     return true;
                 }
                 else
@@ -86,7 +85,6 @@ namespace BusinessLayer.Controller
             podcastRepository.SaveChanges();
         }
 
-
        
         public Podcast HämtaPodcastViaUrl(string url)
         {
@@ -96,7 +94,6 @@ namespace BusinessLayer.Controller
         public Podcast KollaPodcastNamn(string namn)
         {
             return ((PodRepository)podcastRepository).HamtaPodcastMedNamn(namn);
-
         }
 
         public void UpdatePodcast(int index, Podcast podcast)
@@ -107,7 +104,6 @@ namespace BusinessLayer.Controller
         public void deletPodcast(int index)
         {
             podcastRepository.Delete(index);
-
         }
 
     }

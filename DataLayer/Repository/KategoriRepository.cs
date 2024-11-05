@@ -58,7 +58,6 @@ namespace DataAccessLayer.Repository
         {
             KategoriSerializer.Serialize(ListAvKategorier);
         }
-
         
     }
 }
