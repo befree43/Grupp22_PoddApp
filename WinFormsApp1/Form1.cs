@@ -227,13 +227,28 @@ namespace WinFormsApp1
 
         private void btnTaBortKategori_Click(object sender, EventArgs e)
         {
-            if (lboxKategori.SelectedIndex != -1)
+
+            List<Podcast> podcastsWithCategory = podcastController.FilterPodByCategory(lboxKategori.SelectedItem.ToString());
+
+            if (podcastsWithCategory.Count > 0)
             {
-                kategoriController.deleteCategory(lboxKategori.SelectedIndex);
-                LoadCategoriesToComboBoxes();
-                LoadCategoryToListBox();
-                tbNyKategori.Clear();
+                MessageBox.Show("Du kan inte radera en kategori som används");
+
             }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Vill du radera kategorin?", "", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                   
+                    kategoriController.deleteCategory(lboxKategori.SelectedIndex);
+                    LoadCategoriesToComboBoxes();
+                    LoadCategoryToListBox();
+                    tbNyKategori.Clear();
+                      
+                }
+            }
+               
         }
 
         private void lboxKategori_SelectedIndexChanged(object sender, EventArgs e)
