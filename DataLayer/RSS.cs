@@ -50,7 +50,12 @@ namespace DataAccessLayer
                     if (podcastFlode == null) throw new Exception("RSS-flödet kunde inte läsas.");
 
                     foreach (SyndicationItem item in podcastFlode.Items) {
-                        Avsnitt avsnitt = new Avsnitt(item.Title.Text, item.Summary.Text, item.Id);
+                        string summary = "Ingen beskrivning att visa";
+
+                        if (item.Summary != null && item.Summary.Text != null) {
+                            summary = item.Summary.Text;
+                        }
+                        Avsnitt avsnitt = new Avsnitt(item.Title.Text, summary, item.Id);
                         allaAvsnitt.Add(avsnitt);
                     }
 
