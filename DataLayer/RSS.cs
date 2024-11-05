@@ -73,8 +73,4 @@ namespace DataAccessLayer
 }
     
 
-        //XmlReader minXMLlasare = XmlReader.Create(url);
-        //SyndicationFeed podcastFlode = SyndicationFeed.Load(minXMLlasare);
-
-        //Podcast enPodcast = new Podcast(podcastFlode.Title.Text, kategori, namn , url);
-
+       

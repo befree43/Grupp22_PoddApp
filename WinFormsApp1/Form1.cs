@@ -43,24 +43,24 @@ namespace WinFormsApp1
             if (!Validator.FaltValidator(namn))
             {
                 MessageBox.Show("Namnet får inte vara tomt!");
-                return; // Avbryt om titeln är tom
+                return; 
             }
 
             if(!Validator.ArUniktNamn(namn, podcastController)) 
             {
                 MessageBox.Show("Vänligen välj ett unikt namn!");
-                return; // Avbryt om titeln är tom
+                return; 
             }
 
             if (cboxKategori.Text == "Välj en kategori")
             {
                 MessageBox.Show("Välj en kategori!");
-
+                return;
             }
             if (!Validator.ArUnikUrl(URL, podcastController))
             {
                 MessageBox.Show("Denna URL är redan sparad. Vänligen ange en annan URL.");
-                return; // Avbryt om URL:en redan är sparad
+                return; 
             }
 
             else
@@ -80,30 +80,21 @@ namespace WinFormsApp1
                     MessageBox.Show("Kunde inte lägga till podcasten. Kontrollera URL och försök igen.");
                 }
             }
-
-
-
-
-
-
-
-
         }
 
         private void LoadPodcastsToListView()
         {
             List<Podcast> podcasts = podcastSerializer.Deserialize();
-            lvPrenumerationer.Items.Clear(); // Rensa ListView innan den fylls på nytt
+            lvPrenumerationer.Items.Clear(); 
             foreach (var podcast in podcasts)
             {
                 ListViewItem item = new ListViewItem(podcast.Namn);
                 item.SubItems.Add(podcast.Titel);
-                item.SubItems.Add(podcast.Kategori.namn);// Lägg till andra subitems om det behövs
+                item.SubItems.Add(podcast.Kategori.namn);
                 item.SubItems.Add(podcast.Url);
 
                 lvPrenumerationer.Items.Add(item);
             }
-
         }
 
         private void lvPrenumerationer_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,7 +109,6 @@ namespace WinFormsApp1
 
                 Kategori kategori = new Kategori(selectedItem.SubItems[2].Text);
                 LoadPodcastInfo(selectedItem.SubItems[0].Text, selectedItem.SubItems[1].Text, kategori);
-
             }
         }
 
@@ -163,7 +153,6 @@ namespace WinFormsApp1
 
             lblPodTitle.Text = podTitel;
             tbPodNamn.Text = podNamn;
-
         }
 
         private void lboxAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
@@ -205,7 +194,6 @@ namespace WinFormsApp1
                     lboxKategori.Items.Add(kategori.namn);
                 }
             }
-
         }
 
         private void LoadCategoriesToComboBoxes()
